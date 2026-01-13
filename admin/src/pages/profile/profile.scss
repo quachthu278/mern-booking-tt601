@@ -1,0 +1,53 @@
+.profile {
+    display: flex;
+    width: 100%;
+
+    .profileContainer {
+        flex: 6;
+
+        .content {
+            padding: 20px;
+
+            h1 {
+                margin-bottom: 20px;
+                color: gray;
+            }
+
+            .profileCard {
+                display: flex;
+                gap: 20px;
+                padding: 20px;
+                box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+                border-radius: 10px;
+                width: 500px;
+
+                .avatar {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .details {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    h2 {
+                        color: #555;
+                    }
+
+                    .editButton {
+                        padding: 5px 10px;
+                        background-color: darkblue;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: fit-content;
+                    }
+                }
+            }
+        }
+    }
+}

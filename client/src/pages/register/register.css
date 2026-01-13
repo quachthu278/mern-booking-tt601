@@ -1,0 +1,95 @@
+.register {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5fafd;
+}
+
+.rContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.rTitle {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.rInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rInputContainer label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.rInput {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.rInput:focus {
+    outline: none;
+    border-color: #003580;
+    box-shadow: 0 0 3px #003580;
+}
+
+.rButton {
+    border: none;
+    padding: 15px;
+    background-color: #003580;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.rButton:disabled {
+    background-color: #0071c2;
+    cursor: not-allowed;
+}
+
+.rButton:hover:not(:disabled) {
+    background-color: #00224f;
+}
+
+.rError {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+.rLoginLink {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.rLoginLink a {
+    color: #0071c2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rLoginLink a:hover {
+    text-decoration: underline;
+}

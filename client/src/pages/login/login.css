@@ -1,0 +1,93 @@
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5fafd;
+}
+
+.lContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.lTitle {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.lInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lInputContainer label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.lInput {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.lInput:focus {
+  outline: none;
+  border-color: #0071c2;
+  box-shadow: 0 0 3px #0071c2;
+}
+
+.lButton {
+  border: none;
+  padding: 15px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.lButton:disabled {
+  background-color: #aebfd1;
+  cursor: not-allowed;
+}
+
+.lButton:hover:not(:disabled) {
+  background-color: #005999;
+}
+
+.lError {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+.lRegisterLink {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.lRegisterLink a {
+  color: #0071c2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lRegisterLink a:hover {
+  text-decoration: underline;
+}

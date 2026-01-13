@@ -1,0 +1,41 @@
+.notifications {
+    display: flex;
+    width: 100%;
+
+    .notificationsContainer {
+        flex: 6;
+
+        .content {
+            padding: 20px;
+
+            h1 {
+                margin-bottom: 20px;
+                color: gray;
+            }
+
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    background-color: white;
+
+                    .message {
+                        font-weight: 500;
+                    }
+
+                    .time {
+                        color: gray;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

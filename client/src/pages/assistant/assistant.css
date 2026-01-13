@@ -1,0 +1,94 @@
+.assistantContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    min-height: 60vh;
+}
+
+.chatWindow {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f9f9f9;
+}
+
+.message {
+    display: flex;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.messageContent {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.user .messageContent {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-bottom-right-radius: 2px;
+}
+
+.message.bot .messageContent {
+    background-color: #e0e0e0;
+    color: var(--text-color);
+    border-bottom-left-radius: 2px;
+}
+
+.inputArea {
+    padding: 15px;
+    background-color: var(--white);
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    gap: 10px;
+}
+
+.inputArea input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 20px;
+    outline: none;
+}
+
+.inputArea input:focus {
+    border-color: var(--primary-color);
+}
+
+.inputArea button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.inputArea button:hover {
+    background-color: #e0a800;
+}
