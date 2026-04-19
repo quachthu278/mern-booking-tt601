@@ -12,23 +12,29 @@ import healthRoute from "./routes/health.js";
 import statsRoute from "./routes/stats.js";
 import settingsRoute from "./routes/settings.js";
 import aiRoute from "./routes/ai.js";
+import categoriesRoute from "./routes/categories.js";
+import toursRoute from "./routes/tours.js";
+import bookingsRoute from "./routes/bookings.js";
+import paymentsRoute from "./routes/payments.js";
+import articlesRoute from "./routes/articles.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
 const app = express();
 dotenv.config();
+mongoose.set("strictQuery", false);
 
 const connect = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("Connected to mongoDB.");
-  } catch (error) {
-    throw error;
-  }
+  await mongoose.connect(process.env.MONGO);
+  console.log("Connected to mongoDB.");
 };
 
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("mongoDB connected!");
 });
 
 //middlewares
@@ -47,19 +53,38 @@ app.use("/api/health", healthRoute);
 app.use("/api/stats", statsRoute);
 app.use("/api/settings", settingsRoute);
 app.use("/api/ai", aiRoute);
+app.use("/api/categories", categoriesRoute);
+app.use("/api/tours", toursRoute);
+app.use("/api/bookings", bookingsRoute);
+app.use("/api/payments", paymentsRoute);
+app.use("/api/articles", articlesRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";
   return res.status(errorStatus).json({
-    success: false,
+    success: false, 
     status: errorStatus,
     message: errorMessage,
     stack: err.stack,
   });
 });
 
-app.listen(8800, () => {
-  connect();
-  console.log("Connected to backend.");
-});
+const startServer = async () => {
+  try {
+    if (!process.env.MONGO) {
+      throw new Error("Missing MONGO in .env");
+    }
+
+    await connect();
+
+    app.listen(8800, () => {
+      console.log("Connected to backend. API running at http://localhost:8800");
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
