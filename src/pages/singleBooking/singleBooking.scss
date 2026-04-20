@@ -1,0 +1,112 @@
+.singleBooking {
+  display: flex;
+  width: 100%;
+
+  .singleContainer {
+    flex: 6;
+
+    .top {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+
+      .left {
+        flex: 2;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 20px;
+        position: relative;
+
+        .editButton {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 5px;
+          font-size: 12px;
+          color: #7451f8;
+          background-color: #7551f818;
+          cursor: pointer;
+          border-radius: 0px 0px 0px 5px;
+        }
+
+        .title {
+          font-size: 16px;
+          color: lightgray;
+          margin-bottom: 20px;
+        }
+
+        .item {
+          display: flex;
+          gap: 20px;
+
+          .details {
+            .itemTitle {
+              margin-bottom: 20px;
+              color: #555;
+              font-size: 24px;
+            }
+
+            .detailItem {
+              margin-bottom: 10px;
+              font-size: 16px;
+
+              .itemKey {
+                font-weight: bold;
+                color: gray;
+                margin-right: 5px;
+              }
+
+              .itemValue {
+                font-weight: 300;
+              }
+
+              .status {
+                padding: 5px;
+                border-radius: 5px;
+                &.Pending { background-color: rgba(255, 217, 0, 0.151); color: goldenrod; }
+                &.Confirmed { background-color: rgba(0, 128, 0, 0.151); color: green; }
+                &.Cancelled { background-color: rgba(255, 0, 0, 0.151); color: crimson; }
+                &.Checked-in { background-color: rgba(0, 0, 255, 0.151); color: blue; }
+                &.Completed { background-color: rgba(128, 0, 128, 0.151); color: purple; }
+              }
+            }
+          }
+        }
+      }
+      .right {
+        flex: 1;
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 20px;
+        
+        .title {
+          font-size: 16px;
+          color: lightgray;
+          margin-bottom: 20px;
+        }
+        
+        .updateWrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          
+          select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+          }
+          
+          button {
+            padding: 10px;
+            border: none;
+            background-color: teal;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

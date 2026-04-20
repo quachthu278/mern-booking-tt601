@@ -1,0 +1,92 @@
+.tour-admin {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fe;
+}
+
+.tourContainer {
+  flex: 1;
+  padding: 20px;
+}
+
+.tour-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 18px;
+}
+
+.tour-header h1 {
+  margin: 0; 
+  font-size: 1.5rem;
+}
+
+.tour-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+}
+
+.tablist button {
+  margin-left: 8px;
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+  color: #334155;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.tablist button:hover {
+  background: #e2e8f0;
+}
+
+.tablist button.active {
+  background: #1d4ed8;
+  color: white;
+  border-color: #1e3a8a;
+}
+
+.panel {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.toggleButton {
+  margin: 0.5rem 0 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #93c5fd;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.itinerary-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.itinerary-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.itinerary-day {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #1d4ed8;
+  font-weight: 700;
+}

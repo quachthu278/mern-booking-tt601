@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Quản trị viên Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --booking-blue: #003B95;
+            --booking-light-blue: #0071C2;
+            --accent-purple: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --bg-light: #f4f7fe;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        /* --- Header --- */
+        .booking-header {
+            background: var(--booking-blue);
+            color: white;
+            padding: 0 40px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #ffb700;
+        }
+
+        .nav-right ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .nav-right ul li {
+            cursor: pointer;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .nav-right ul li:hover {
+            opacity: 1;
+        }
+
+        .header-categories {
+            padding: 12px 0;
+            overflow-x: auto;
+        }
+
+        .header-categories ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .header-categories li {
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.8;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .header-categories li.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .header-categories li.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: white;
+        }
+
+        /* --- Main Layout --- */
+        .auth-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* --- Left Column (Auth Form) --- */
+        .auth-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-gray);
+            transition: all 0.2s;
+            font-size: 15px;
+        }
+
+        .tab.active {
+            color: var(--booking-blue);
+            border-bottom: 3px solid var(--accent-purple);
+        }
+
+        .auth-form {
+            padding: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: #f8fafc;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--booking-light-blue);
+            background: white;
+        }
+
+        .form-group .eye-icon {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            color: var(--text-gray);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .checkbox-group a {
+            color: var(--booking-light-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-create-account {
+            width: 100%;
+            margin-top: 24px;
+            padding: 15px;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-create-account:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+        }
+
+        /* --- Right Column (Marketing) --- */
+        .marketing-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Hero Card */
+        .promo-hero {
+            background: var(--booking-light-blue);
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 113, 194, 0.3);
+        }
+
+        .promo-hero h2 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .promo-hero p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        .promo-hero .fa-plane {
+            position: absolute;
+            right: 20px;
+            top: 40%;
+            font-size: 60px;
+            opacity: 0.15;
+            transform: rotate(-15deg);
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .benefit-card .icon-box {
+            min-width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .benefit-card.hotel .icon-box {
+            background: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .benefit-card.flight .icon-box {
+            background: #fff7ed;
+            color: #f97316;
+        }
+
+        .benefit-card.promo .icon-box {
+            background: #f0fdf4;
+            color: #22c55e;
+        }
+
+        .benefit-card.secure .icon-box {
+            background: #fef2f2;
+            color: #ef4444;
+        }
+
+        .benefit-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .benefit-info p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Bottom Promo Banner */
+        .promo-banner {
+            background: #8b5cf6;
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .promo-banner h5 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .promo-banner p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .promo-code {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 16px;
+            border: 1px dashed white;
+        }
+
+        @media (max-width: 900px) {
+            .auth-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .header-categories {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="booking-header">
+        <div class="header-top">
+            <div class="logo">Quản trị viên <span>Booking</span></div>
+            <nav class="nav-right">
+                <ul>
+                    <li>Trang chủ</li>
+                    <li>Về chúng tôi</li>
+                    <li>Liên hệ</li>
+                    <li>Hỗ trợ</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-categories">
+            <ul>
+                <li><i class="fa-solid fa-bed"></i> Lưu trú</li>
+                <li><i class="fa-solid fa-plane"></i> Chuyến bay</li>
+                <li><i class="fa-solid fa-earth-americas"></i> Chuyến bay + Khách sạn</li>
+                <li class="active"><i class="fa-solid fa-car"></i> Thuê xe</li>
+                <li><i class="fa-brands fa-fort-awesome"></i> Hoạt động</li>
+                <li><i class="fa-solid fa-taxi"></i> Taxi sân bay</li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-tabs">
+                <div class="tab">Đăng nhập</div>
+                <div class="tab active">Đăng ký</div>
+            </div>
+            <div class="auth-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ</label>
+                        <input type="text" value="Nguyễn">
+                    </div>
+                    <div class="form-group">
+                        <label>Tên</label>
+                        <input type="text" value="Văn A">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" value="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <div style="position: relative;">
+                        <input type="text" value="+84 xxx xxx xxx" style="padding-left: 45px;">
+                        <span style="position: absolute; left: 12px; top: 11px; font-size: 14px;">🇻🇳</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" value="password123">
+                    <i class="fa-regular fa-eye-slash eye-icon"></i>
+                </div>
+                <div class="form-group">
+                    <label>Xác nhận mật khẩu</label>
+                    <input type="password" value="password123">
+                    <i class="fa-regular fa-eye-slash eye-icon"></i>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="tos" checked>
+                    <label for="tos">Tôi đồng ý với <a href="#">điều khoản dịch vụ</a></label>
+                </div>
+
+                <button class="btn-create-account">Tạo tài khoản</button>
+            </div>
+        </div>
+
+        <div class="marketing-section">
+            <div class="promo-hero">
+                <h2>Đặt chỗ dễ dàng – Trải nghiệm tuyệt vời</h2>
+                <p>Đăng ký tài khoản để đặt phòng khách sạn, vé máy bay, thuê xe và hàng nghìn dịch vụ du lịch với ưu
+                    đãi độc quyền.</p>
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card hotel">
+                    <div class="icon-box"><i class="fa-solid fa-hotel"></i></div>
+                    <div class="benefit-info">
+                        <h4>Đặt khách sạn</h4>
+                        <p>Hơn 1 triệu chỗ ở trên toàn thế giới</p>
+                    </div>
+                </div>
+                <div class="benefit-card flight">
+                    <div class="icon-box"><i class="fa-solid fa-plane-up"></i></div>
+                    <div class="benefit-info">
+                        <h4>Vé máy bay</h4>
+                        <p>So sánh giá, đặt ngay trong vài giây</p>
+                    </div>
+                </div>
+                <div class="benefit-card promo">
+                    <div class="icon-box"><i class="fa-solid fa-tags"></i></div>
+                    <div class="benefit-info">
+                        <h4>Ưu đãi thành viên</h4>
+                        <p>Giảm giá độc quyền cho thành viên</p>
+                    </div>
+                </div>
+                <div class="benefit-card secure">
+                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="benefit-info">
+                        <h4>Thanh toán an toàn</h4>
+                        <p>Bảo mật SSL 256-bit đa phương thức</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo-banner">
+                <div>
+                    <h5>Ưu đãi chào mừng thành viên mới!</h5>
+                    <p>Nhập mã khi đặt lần đầu để được giảm 20%</p>
+                </div>
+                <div class="promo-code">BOOKING20</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple tab switching logic
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
