@@ -17,6 +17,9 @@ import toursRoute from "./routes/tours.js";
 import bookingsRoute from "./routes/bookings.js";
 import paymentsRoute from "./routes/payments.js";
 import articlesRoute from "./routes/articles.js";
+import flightsRoute from "./routes/flights.js";
+import carsRoute from "./routes/cars.js";
+import taxisRoute from "./routes/taxis.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
@@ -58,6 +61,9 @@ app.use("/api/tours", toursRoute);
 app.use("/api/bookings", bookingsRoute);
 app.use("/api/payments", paymentsRoute);
 app.use("/api/articles", articlesRoute);
+app.use("/api/flights", flightsRoute);
+app.use("/api/cars", carsRoute);
+app.use("/api/taxis", taxisRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

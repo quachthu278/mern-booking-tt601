@@ -11,7 +11,8 @@ Tài liệu này tổng hợp toàn bộ các API endpoint (tính năng) hiện 
 ##  1. Authentication (`/api/auth`)
 Quản lý đăng ký, đăng nhập.
 * `POST /api/auth/register` - Đăng ký tài khoản mới.
-* `POST /api/auth/login` - Đăng nhập tài khoản.
+* `POST /api/auth/login` - Đăng nhập tài khoản.* `POST /api/auth/google` - Đăng nhập/Đăng ký bằng tài khoản Google.
+* `POST /api/auth/facebook` - Đăng nhập/Đăng ký bằng tài khoản Facebook.
 
 ##  2. Users (`/api/users`)
 Quản lý người dùng.
@@ -23,8 +24,8 @@ Quản lý người dùng.
 * `PUT /api/users/:id` - Cập nhật thông tin một người dùng (`verifyUser`).
 * `DELETE /api/users/:id` - Xóa tài khoản người dùng (`verifyUser`).
 
-## 3. Hotels (`/api/hotels`)
-Quản lý thông tin khách sạn.
+## 🏨 3. Hotels & Stays (`/api/hotels`)
+Quản lý thông tin khách sạn và chỗ nghỉ (Stays).
 * `GET /api/hotels/` - Lấy danh sách khách sạn (có filter, limit, v.v.).
 * `GET /api/hotels/find/:id` - Lấy thông tin chi tiết của 1 khách sạn theo ID.
 * `GET /api/hotels/countByCity` - Đếm số lượng khách sạn theo các thành phố.
@@ -43,7 +44,7 @@ Quản lý phòng nghỉ.
 * `PUT /api/rooms/availability/:id` - Cập nhật trạng thái phòng (đặt phòng, lịch không khả dụng).
 * `DELETE /api/rooms/:id` - Xóa phòng (`verifyAdmin`).
 
-## 📦 5. Delivery (`/api/delivery`)
+##  5. Delivery (`/api/delivery`)
 Quản lý đơn giao hàng/dịch vụ vận chuyển.
 * `GET /api/delivery/` - Lấy danh sách tất cả đơn giao hàng (`verifyAdmin`).
 * `GET /api/delivery/:id` - Lấy thông tin 1 đơn giao hàng (`verifyAdmin`).
@@ -66,11 +67,11 @@ Quản lý trạng thái, log và cài đặt của hệ thống.
 * `GET /api/settings/` - Lấy dữ liệu cài đặt hệ thống (`verifyAdmin`).
 * `PUT /api/settings/` - Cập nhật cài đặt hệ thống (`verifyAdmin`).
 
-## 8. AI & Chatbot (`/api/ai`)
-Giao tiếp với mô hình AI / Chatbot.
-* `POST /api/ai/chat` - Endpoint để gửi tin nhắn và nhận phản hồi từ AI.
+## 🤖 8. AI Assistant / Chatbot (`/api/ai`)
+Giao tiếp với Trợ lý AI du lịch 24/7.
+* `POST /api/ai/chat` - Endpoint để gửi tin nhắn gợi ý hành trình và nhận phản hồi từ AI.
 
-## 9. Categories (`/api/categories`)
+## 🗂️ 9. Categories (`/api/categories`)
 Quản lý danh mục.
 * `GET /api/categories/` - Lấy danh sách danh mục.
 * `GET /api/categories/:id` - Lấy 1 danh mục.
@@ -78,9 +79,9 @@ Quản lý danh mục.
 * `PUT /api/categories/:id` - Cập nhật danh mục (`verifyAdmin`).
 * `DELETE /api/categories/:id` - Xóa danh mục (`verifyAdmin`).
 
-##  10. Tours (`/api/tours`)
-Quản lý các chuyến tham quan/tour.
-* `GET /api/tours/` - Lấy danh sách tour.
+## 🎡 10. Tours & Attractions (`/api/tours`)
+Quản lý các chuyến tham quan, hoạt động vui chơi (Attractions).
+* `GET /api/tours/` - Lấy danh sách tour/hoạt động tham quan.
 * `GET /api/tours/find/:id` - Lấy 1 tour chi tiết.
 * `GET /api/tours/countByCity` - Đếm tour theo thành phố.
 * `POST /api/tours/` - Tạo tour mới (`verifyAdmin`).
@@ -108,3 +109,27 @@ Quản lý bài viết blog (chuẩn SEO).
 * `POST /api/articles/` - Đăng bài viết mới (`verifyAdmin`).
 * `PUT /api/articles/:id` - Tùy chỉnh cập nhật bài viết (`verifyAdmin`).
 * `DELETE /api/articles/:id` - Xóa bài viết (`verifyAdmin`).
+
+## ✈️ 14. Flights (`/api/flights`)
+Quản lý các chuyến bay.
+* `GET /api/flights/` - Lấy danh sách chuyến bay.
+* `GET /api/flights/find/:id` - Lấy chi tiết chuyến bay.
+* `POST /api/flights/` - Tạo chuyến bay mới (`verifyAdmin`).
+* `PUT /api/flights/:id` - Cập nhật chuyến bay (`verifyAdmin`).
+* `DELETE /api/flights/:id` - Xóa chuyến bay (`verifyAdmin`).
+
+## 🚗 15. Car Rentals (`/api/cars`)
+Quản lý dịch vụ thuê xe.
+* `GET /api/cars/` - Lấy danh sách xe cho thuê.
+* `GET /api/cars/find/:id` - Lấy thông tin chi tiết xe.
+* `POST /api/cars/` - Thêm xe mới (`verifyAdmin`).
+* `PUT /api/cars/:id` - Cập nhật thông tin xe (`verifyAdmin`).
+* `DELETE /api/cars/:id` - Xóa xe (`verifyAdmin`).
+
+## 🚕 16. Airport Taxis (`/api/taxis`)
+Quản lý dịch vụ taxi đưa đón sân bay.
+* `GET /api/taxis/` - Lấy danh sách taxi sân bay.
+* `GET /api/taxis/find/:id` - Lấy chi tiết taxi.
+* `POST /api/taxis/` - Tạo mới dịch vụ taxi (`verifyAdmin`).
+* `PUT /api/taxis/:id` - Cập nhật dịch vụ taxi (`verifyAdmin`).
+* `DELETE /api/taxis/:id` - Xóa dịch vụ taxi (`verifyAdmin`).

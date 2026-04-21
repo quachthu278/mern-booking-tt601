@@ -26,10 +26,10 @@ Các hoạt động lõi sinh ra doanh thu trong mảng Booking.
 *   **`/users/:userId`** - **Chi tiết Khách hàng**: Xem thông tin cụ thể (Email, SĐT) và lịch sử hoạt động của người dùng cụ thể.
 *   **`/users/new`** - **Thêm Khách hàng mới**: Form nhập liệu tạo thủ công hồ sơ người dùng mới.
 
-### Chuyến tham quan & Hoạt động (Tours)
-*   **`/tours`** - **Danh sách Tour**: Tổng hợp tất cả các gói Tour nội địa, quốc tế đang hoạt động.
-*   **`/tours/:productId`** - **Chi tiết/Tùy chỉnh Tour**: Giao diện cập nhật hình ảnh, giá cả cho một tour có sẵn.
-*   **`/tours/new`** - **Tạo Tour mới**: Điền thông tin chuẩn bị mở bán tour mới (Có upload ảnh minh họa & cấu hình tính năng nổi bật).
+### Sản phẩm Dịch vụ (Tours, Flights, Cars)
+*   **`/tours`**, **`/flights`**, **`/cars`** - **Danh sách Dịch vụ**: Tổng hợp tất cả các gói Tour nội địa/quốc tế, Chuyến bay, và Xe cho thuê đang hoạt động.
+*   **`/tours/:productId`**, **`/flights/:productId`**, **`/cars/:productId`** - **Chi tiết/Tùy chỉnh Dịch vụ**: Giao diện xem và cập nhật chi tiết một sản phẩm có sẵn.
+*   **`/tours/new`**, **`/flights/new`**, **`/cars/new`** - **Thêm Dịch vụ mới**: Điền thông tin chuẩn bị mở bán (Có cấu hình upload ảnh, sức chứa, giá cả, giờ đi/về...).
 
 ### Đặt chỗ (Bookings - Đơn hàng)
 *   **`/bookings`** - **Danh sách Đặt chỗ**: Nơi theo dõi các giao dịch từ khách hàng (chờ xác nhận, hoàn tất, đã duyệt).
@@ -57,6 +57,13 @@ Các hoạt động lõi sinh ra doanh thu trong mảng Booking.
 
 *   **`/profile`** - **Hồ sơ Cá nhân**: Trang thông tin cá nhân của Quản trị viên đang vận hành hệ thống.
 *   **`/settings`** - **Cài đặt Tổng**: Các cấu hình hệ thống chuyên sâu (như Tùy chọn thay đổi mật khẩu, phân quyền,...).
+
+---
+
+## 🌐 7. Ngôn ngữ & Bản địa hóa
+
+*   Hệ thống Quản trị đã được đồng bộ hóa hoàn toàn sang **Tiếng Việt** bao gồm: Các thanh điều hướng, bảng dữ liệu (Datatable), nút thao tác (Thêm mới, Xem, Xóa), hộp thoại xác nhận và các trạng thái thanh toán/đơn hàng.
+*   Nút chuyển đổi bảng mã/ngôn ngữ đã được tối lược để đảm bảo hệ thống sử dụng duy nhất Tiếng Việt theo chuẩn.
 
 ---
 
