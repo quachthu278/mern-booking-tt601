@@ -18,11 +18,11 @@ const NewTaxi = () => {
     e.preventDefault();
     try {
       await axios.post("/taxis", info);
-      alert("Airport Taxi created successfully!");
+      alert("Tạo airport taxi thành công!");
       navigate("/taxis");
     } catch (err) {
       console.log(err);
-      alert("Failed to create airport taxi! Check console for details.");
+      alert("Lỗi khi tạo airport taxi! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -48,7 +48,7 @@ const NewTaxi = () => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

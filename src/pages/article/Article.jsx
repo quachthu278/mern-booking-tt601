@@ -26,7 +26,7 @@ const Article = () => {
                             onClick={() => navigate("/articles/new")}
                             className="flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-semibold shadow-lg hover:shadow-primary-container/20 transition-all active:scale-95 border-none cursor-pointer"
                         >
-                            <span className="material-symbols-outlined text-[20px] notranslate">edit_note</span>
+                            <span className="material-symbols-outlined text-[20px]">edit_note</span>
                             <span>Viết bài mới</span>
                         </button>
                     </div>
@@ -34,7 +34,7 @@ const Article = () => {
                     {/* Filters & Stats Row - Fixed Grid to prevent overlap */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
                         <div className="lg:col-span-8 relative h-16 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-md transition-all flex items-center overflow-hidden group">
-                            <span className="material-symbols-outlined absolute left-5 text-slate-300 group-hover:text-primary transition-colors notranslate">search</span>
+                            <span className="material-symbols-outlined absolute left-5 text-slate-300 group-hover:text-primary transition-colors">search</span>
                             <input className="w-full h-full pl-14 pr-6 bg-transparent border-none text-sm font-bold outline-none text-slate-700 placeholder:text-slate-300" placeholder="Tìm kiếm bài viết trên Voyage Blog..." type="text" />
                             <div className="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-1 bg-slate-50 px-2 py-1 rounded-lg border border-slate-100">
                                 <span className="text-[10px] font-black text-slate-400">⌘</span>
@@ -51,7 +51,7 @@ const Article = () => {
                                <div className="absolute top-0 right-0 w-12 h-12 bg-primary/5 rounded-full translate-x-4 -translate-y-4"></div>
                            </div>
                            <button className="w-16 h-16 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all border-none cursor-pointer flex items-center justify-center text-slate-400 hover:text-primary active:scale-90 shrink-0">
-                               <span className="material-symbols-outlined text-[28px] notranslate">tune</span>
+                               <span className="material-symbols-outlined text-[28px]">tune</span>
                            </button>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ const Article = () => {
                                                     ))}
                                                     {article.metaTitle && article.metaDescription && (
                                                         <span className="text-[10px] font-bold px-2 py-0.5 bg-green-50 text-green-600 rounded-full uppercase tracking-tighter flex items-center gap-1">
-                                                            <span className="material-symbols-outlined text-[12px] notranslate">done_all</span> SEO
+                                                            <span className="material-symbols-outlined text-[12px]">done_all</span> SEO
                                                         </span>
                                                     )}
                                                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter ${article.status === 'Published' ? 'bg-green-50 text-green-600' : 'bg-orange-50 text-orange-600'}`}>
@@ -99,13 +99,13 @@ const Article = () => {
                                             </div>
                                             <div className="flex gap-2">
                                                 <button className="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all border-none cursor-pointer">
-                                                    <span className="material-symbols-outlined text-sm notranslate">edit</span>
+                                                    <span className="material-symbols-outlined text-sm">edit</span>
                                                 </button>
                                                 <button className="p-2 text-slate-400 hover:text-error hover:bg-error/5 rounded-lg transition-all border-none cursor-pointer">
-                                                    <span className="material-symbols-outlined text-sm notranslate">delete</span>
+                                                    <span className="material-symbols-outlined text-sm">delete</span>
                                                 </button>
                                                 <button className="p-2 text-slate-400 hover:text-on-surface hover:bg-slate-100 rounded-lg transition-all border-none cursor-pointer">
-                                                    <span className="material-symbols-outlined text-sm notranslate">visibility</span>
+                                                    <span className="material-symbols-outlined text-sm">visibility</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@ const Article = () => {
                         ) : (
                             <div className="py-24 bg-surface-container-low rounded-3xl border-2 border-dashed border-slate-200 text-center">
                                 <div className="w-20 h-20 bg-white rounded-2xl shadow-xl shadow-black/5 flex items-center justify-center mx-auto mb-6 transform rotate-3">
-                                     <span className="material-symbols-outlined text-4xl text-primary-container notranslate">article</span>
+                                     <span className="material-symbols-outlined text-4xl text-primary-container">article</span>
                                 </div>
                                 <h3 className="text-xl font-bold text-on-surface mb-2" style={{margin: 0}}>Bắt đầu viết blog thôi!</h3>
                                 <p className="text-slate-500 text-sm max-w-xs mx-auto mb-8">Chia sẻ những kinh nghiệm du lịch quý báu của bạn để thu hút thêm nhiều khách hàng tiềm năng.</p>

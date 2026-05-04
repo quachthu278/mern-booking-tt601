@@ -35,7 +35,7 @@ const NewDelivery = () => {
             <div className="newContainer">
                 <Navbar />
                 <div className="top">
-                    <h1>Add New Delivery</h1>
+                    <h1>Thêm Dịch vụ giao hàng</h1>
                 </div>
                 <div className="bottom">
                     <div className="right">
@@ -66,7 +66,7 @@ const NewDelivery = () => {
                                     <option value="Cancelled">Cancelled</option>
                                 </select>
                             </div>
-                            <button onClick={handleClick}>Send</button>
+                            <button onClick={handleClick}>Lưu</button>
                         </form>
                     </div>
                 </div>

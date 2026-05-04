@@ -52,7 +52,7 @@ const Settings = () => {
                         <div className="flex items-center gap-4">
                             {saved && (
                                 <span className="text-green-600 text-xs font-bold uppercase tracking-widest flex items-center gap-2 animate-bounce">
-                                    <span className="material-symbols-outlined text-sm filled notranslate">check_circle</span>
+                                    <span className="material-symbols-outlined text-sm filled">check_circle</span>
                                     Đã lưu thành công!
                                 </span>
                             )}
@@ -61,7 +61,7 @@ const Settings = () => {
                                 onClick={handleClick}
                                 className="bg-[#003B95] hover:bg-[#002b6b] text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-[#003B95]/10 flex items-center gap-3 border-none cursor-pointer"
                             >
-                                <span className="material-symbols-outlined text-lg notranslate">publish</span>
+                                <span className="material-symbols-outlined text-lg">publish</span>
                                 Lưu thay đổi
                             </button>
                         </div>
@@ -75,7 +75,7 @@ const Settings = () => {
                             <div className="bg-white rounded-3xl p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 transition-all hover:shadow-md">
                                 <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-50">
                                     <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#003B95] flex items-center justify-center">
-                                        <span className="material-symbols-outlined filled notranslate">domain</span>
+                                        <span className="material-symbols-outlined filled">domain</span>
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-lg font-bold font-headline text-slate-800 m-0 leading-none">Thương hiệu & Website</h3>
@@ -123,7 +123,7 @@ const Settings = () => {
                             <div className="bg-white rounded-3xl p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 transition-all hover:shadow-md">
                                 <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-50">
                                     <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
-                                        <span className="material-symbols-outlined filled notranslate">support_agent</span>
+                                        <span className="material-symbols-outlined filled">support_agent</span>
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="text-lg font-bold font-headline text-slate-800 m-0 leading-none">Vận hành & Hỗ trợ</h3>
@@ -164,6 +164,34 @@ const Settings = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Card: AI Configuration */}
+                            <div className="bg-white rounded-3xl p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 transition-all hover:shadow-md">
+                                <div className="flex items-center gap-4 mb-10 pb-6 border-b border-slate-50">
+                                    <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+                                        <span className="material-symbols-outlined filled">smart_toy</span>
+                                    </div>
+                                    <div className="flex-1">
+                                        <h3 className="text-lg font-bold font-headline text-slate-800 m-0 leading-none">Cấu hình Trí tuệ Nhân tạo</h3>
+                                        <p className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-1.5 leading-none">AI & API Settings</p>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 gap-8">
+                                    <div className="space-y-3">
+                                        <label className="text-[11px] font-bold font-label text-slate-500 uppercase tracking-[0.15em] pl-1">Khóa API Gemini (Gemini API Key)</label>
+                                        <input
+                                            type="password"
+                                            id="geminiApiKey"
+                                            placeholder="Nhập khóa API của Google Gemini để kích hoạt trợ lý..."
+                                            className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-slate-50/50 font-medium text-sm focus:bg-white focus:border-[#003B95] transition-all outline-none"
+                                            value={info.geminiApiKey || ""}
+                                            onChange={handleChange}
+                                        />
+                                        <p className="text-xs text-slate-400 mt-2 pl-2">Sử dụng cho tính năng Trợ lý Chat AI. Để trống sẽ dùng mặc định của hệ thống.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Sidebar: Status & Preview */}
@@ -172,7 +200,7 @@ const Settings = () => {
                             {/* Card: Branding Preview */}
                             <div className="bg-slate-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                                    <span className="material-symbols-outlined text-[80px] filled notranslate">token</span>
+                                    <span className="material-symbols-outlined text-[80px] filled">token</span>
                                 </div>
                                 <h3 className="text-base font-bold font-headline m-0 mb-6 flex items-center gap-3">
                                     <span className="w-1.5 h-6 bg-primary rounded-full"></span>
@@ -183,7 +211,7 @@ const Settings = () => {
                                         <img src={info.logo} alt="Branding" className="max-h-24 object-contain" />
                                     ) : (
                                         <div className="text-center opacity-20 italic space-y-2">
-                                            <span className="material-symbols-outlined text-4xl notranslate">image_not_supported</span>
+                                            <span className="material-symbols-outlined text-4xl">image_not_supported</span>
                                             <p className="text-[10px] font-bold uppercase tracking-widest m-0">No logo found</p>
                                         </div>
                                     )}
@@ -219,7 +247,7 @@ const Settings = () => {
                                     </div>
 
                                     <div className="space-y-3">
-                                        <label className="text-[11px] font-bold font-label text-slate-500 uppercase tracking-[0.15em] pl-1">Văn bản bản quyền (Footer)</label>
+                                        <label className="text-[11px] font-bold font-label text-slate-500 uppercase tracking-widest pl-1">Văn bản bản quyền (Footer)</label>
                                         <input
                                             type="text"
                                             id="footerText"
@@ -229,20 +257,7 @@ const Settings = () => {
                                         />
                                     </div>
                                     
-                                    <div className="space-y-3">
-                                        <label className="text-[11px] font-bold font-label text-slate-500 uppercase tracking-widest pl-1">AI API Key (Gemini)</label>
-                                        <input
-                                            type="password"
-                                            id="geminiApiKey"
-                                            placeholder="••••••••••••••••••••••••"
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 font-medium text-xs focus:bg-white focus:border-[#003B95] transition-all outline-none"
-                                            value={info.geminiApiKey || ""}
-                                            onChange={handleChange}
-                                        />
-                                        <p className="text-[10px] text-slate-400 font-medium px-1 m-0">Bỏ trống để dùng Key mặc định mặc định (.env).</p>
-                                    </div>
-
-                                    <div className="pt-4 border-t border-slate-50 opacity-50 flex justify-between items-center text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
+                                    <div className="pt-4 border-t border-slate-50 opacity-50 flex justify-between items-center text-[9px] font-bold uppercase tracking-widest text-slate-400">
                                         <div className="flex items-center gap-1.5">
                                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                                             Server API Active

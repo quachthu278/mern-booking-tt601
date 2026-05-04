@@ -10,20 +10,26 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { userColumns, bookingColumns, tourColumns, reviewColumns, ticketColumns, flightColumns, carColumns } from "./datatablesource";
+import { userColumns, bookingColumns, tourColumns, reviewColumns, ticketColumns, hotelColumns, roomColumns, flightColumns, carColumns, taxiColumns, activityColumns, couponColumns, deliveryColumns } from "./datatablesource";
 import Stats from "./pages/stats/Stats";
 import Profile from "./pages/profile/Profile";
 import NewBooking from "./pages/newBooking/NewBooking";
 import SingleBooking from "./pages/singleBooking/SingleBooking";
 import SingleTicket from "./pages/singleTicket/SingleTicket";
 import NewTour from "./pages/newTour/NewTour";
-import NewFlight from "./pages/newFlight/NewFlight";
-import NewCar from "./pages/newCar/NewCar";
 import Payment from "./pages/payment/Payment";
 import Category from "./pages/category/Category";
 import Article from "./pages/article/Article";
-import NewArticle from "./pages/newArticle/NewArticle";
 import Settings from "./pages/settings/Settings";
+import NewArticle from "./pages/newArticle/NewArticle";
+import NewHotel from "./pages/newHotel/NewHotel";
+import NewRoom from "./pages/newRoom/NewRoom";
+import NewFlight from "./pages/newFlight/NewFlight";
+import NewCar from "./pages/newCar/NewCar";
+import NewTaxi from "./pages/newTaxi/NewTaxi";
+import NewActivity from "./pages/newActivity/NewActivity";
+import NewCoupon from "./pages/newCoupon/NewCoupon";
+import NewDelivery from "./pages/newDelivery/NewDelivery";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -52,7 +58,7 @@ function App() {
             <Route path="users">
               <Route index element={<ProtectedRoute><List columns={userColumns} /></ProtectedRoute>} />
               <Route path=":userId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
-              <Route path="new" element={<ProtectedRoute><New inputs={userInputs} title="Add New User" /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><New inputs={userInputs} title="Thêm Người dùng mới" /></ProtectedRoute>} />
             </Route>
             <Route path="bookings">
               <Route index element={<ProtectedRoute><List columns={bookingColumns} /></ProtectedRoute>} />
@@ -64,6 +70,30 @@ function App() {
               <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route path="new" element={<ProtectedRoute><NewTour /></ProtectedRoute>} />
             </Route>
+            <Route path="stats" element={<ProtectedRoute><Stats /></ProtectedRoute>} />
+            <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            <Route path="payments" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+            <Route path="categories" element={<ProtectedRoute><Category /></ProtectedRoute>} />
+            <Route path="articles">
+              <Route index element={<ProtectedRoute><Article /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewArticle /></ProtectedRoute>} />
+            </Route>
+            <Route path="settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+            <Route path="reviews" element={<ProtectedRoute><List columns={reviewColumns} /></ProtectedRoute>} />
+            <Route path="tickets">
+              <Route index element={<ProtectedRoute><List columns={ticketColumns} /></ProtectedRoute>} />
+              <Route path=":ticketId" element={<ProtectedRoute><SingleTicket /></ProtectedRoute>} />
+            </Route>
+            <Route path="hotels">
+              <Route index element={<ProtectedRoute><List columns={hotelColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewHotel /></ProtectedRoute>} />
+            </Route>
+            <Route path="rooms">
+              <Route index element={<ProtectedRoute><List columns={roomColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewRoom /></ProtectedRoute>} />
+            </Route>
             <Route path="flights">
               <Route index element={<ProtectedRoute><List columns={flightColumns} /></ProtectedRoute>} />
               <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
@@ -74,22 +104,26 @@ function App() {
               <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route path="new" element={<ProtectedRoute><NewCar /></ProtectedRoute>} />
             </Route>
-            <Route path="stats" element={<ProtectedRoute><Stats /></ProtectedRoute>} />
-            <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-            <Route path="payments" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
-            <Route path="categories" element={<ProtectedRoute><Category /></ProtectedRoute>} />
-            <Route path="reviews">
-              <Route index element={<ProtectedRoute><List columns={reviewColumns} /></ProtectedRoute>} />
+            <Route path="taxis">
+              <Route index element={<ProtectedRoute><List columns={taxiColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewTaxi /></ProtectedRoute>} />
             </Route>
-            <Route path="tickets">
-              <Route index element={<ProtectedRoute><List columns={ticketColumns} /></ProtectedRoute>} />
-              <Route path=":ticketId" element={<ProtectedRoute><SingleTicket /></ProtectedRoute>} />
+            <Route path="activities">
+              <Route index element={<ProtectedRoute><List columns={activityColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewActivity /></ProtectedRoute>} />
             </Route>
-            <Route path="articles">
-              <Route index element={<ProtectedRoute><Article /></ProtectedRoute>} />
-              <Route path="new" element={<ProtectedRoute><NewArticle /></ProtectedRoute>} />
+            <Route path="coupons">
+              <Route index element={<ProtectedRoute><List columns={couponColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewCoupon /></ProtectedRoute>} />
             </Route>
-            <Route path="settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+            <Route path="delivery">
+              <Route index element={<ProtectedRoute><List columns={deliveryColumns} /></ProtectedRoute>} />
+              <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
+              <Route path="new" element={<ProtectedRoute><NewDelivery /></ProtectedRoute>} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

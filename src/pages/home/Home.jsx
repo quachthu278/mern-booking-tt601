@@ -3,7 +3,6 @@ import Navbar from "../../components/navbar/Navbar";
 import useFetch from "../../hooks/useFetch";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
-import { Link } from "react-router-dom";
 
 const Home = () => {
     const { data: tourData } = useFetch("/tours");
@@ -37,10 +36,10 @@ const Home = () => {
                             <p className="text-slate-500 font-body mt-2">Hôm nay hệ thống của bạn có những cập nhật mới từ các tour du lịch.</p>
                         </div>
                         <div className="flex gap-3">
-                            <Link to="/tours/new" style={{ textDecoration: 'none' }} className="px-5 py-2.5 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2 border-none cursor-pointer">
-                                <span className="material-symbols-outlined text-lg notranslate">add_circle</span>
+                            <button className="px-5 py-2.5 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2 border-none cursor-pointer">
+                                <span className="material-symbols-outlined text-lg">add_circle</span>
                                 <span>Tạo Tour Mới</span>
-                            </Link>
+                            </button>
                         </div>
                     </div>
 
@@ -49,11 +48,11 @@ const Home = () => {
                         {/* Total Revenue Stat */}
                         <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
                            <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                                <span className="material-symbols-outlined text-8xl text-primary notranslate">payments</span>
+                                <span className="material-symbols-outlined text-8xl text-primary">payments</span>
                            </div>
                            <div className="flex justify-between items-start mb-4">
                                <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
-                                   <span className="material-symbols-outlined notranslate">account_balance_wallet</span>
+                                   <span className="material-symbols-outlined">account_balance_wallet</span>
                                </div>
                                <span className="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">+12%</span>
                            </div>
@@ -64,11 +63,11 @@ const Home = () => {
                         {/* Tours Stat */}
                         <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
                             <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                                <span className="material-symbols-outlined text-8xl text-primary notranslate">explore</span>
+                                <span className="material-symbols-outlined text-8xl text-primary">explore</span>
                            </div>
                            <div className="flex justify-between items-start mb-4">
                                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                                   <span className="material-symbols-outlined notranslate">map</span>
+                                   <span className="material-symbols-outlined">map</span>
                                </div>
                            </div>
                            <div className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1">Chuyến tham quan</div>
@@ -78,11 +77,11 @@ const Home = () => {
                         {/* Bookings Stat */}
                         <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
                             <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                                <span className="material-symbols-outlined text-8xl text-primary notranslate">confirmation_number</span>
+                                <span className="material-symbols-outlined text-8xl text-primary">confirmation_number</span>
                            </div>
                            <div className="flex justify-between items-start mb-4">
                                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                                   <span className="material-symbols-outlined notranslate">book_online</span>
+                                   <span className="material-symbols-outlined">book_online</span>
                                </div>
                            </div>
                            <div className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1">Đơn đặt chỗ</div>
@@ -92,11 +91,11 @@ const Home = () => {
                         {/* Users Stat */}
                         <div className="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
                             <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
-                                <span className="material-symbols-outlined text-8xl text-primary notranslate">group</span>
+                                <span className="material-symbols-outlined text-8xl text-primary">group</span>
                            </div>
                            <div className="flex justify-between items-start mb-4">
                                <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
-                                   <span className="material-symbols-outlined notranslate">person</span>
+                                   <span className="material-symbols-outlined">person</span>
                                </div>
                            </div>
                            <div className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-1">Khách hàng</div>
@@ -117,13 +116,13 @@ const Home = () => {
                                     <option>3 tháng gần nhất</option>
                                 </select>
                             </div>
-                            <Chart aspect={3.5 / 1} />
+                            <Chart aspect={2.5 / 1} />
                         </div>
 
                         {/* Side Section: Quick Actions / Tips */}
                         <div className="space-y-6">
                             <div className="bg-primary text-white p-6 rounded-3xl shadow-xl shadow-primary/20 relative overflow-hidden">
-                                <span className="material-symbols-outlined text-6xl absolute -right-2 -bottom-2 opacity-20 rotate-12 notranslate">trending_up</span>
+                                <span className="material-symbols-outlined text-6xl absolute -right-2 -bottom-2 opacity-20 rotate-12">trending_up</span>
                                 <h3 className="text-lg font-bold font-headline mb-2" style={{margin: 0}}>Mẹo tối ưu!</h3>
                                 <p className="text-primary-fixed/80 text-xs leading-relaxed mb-6">Trang Tin tức của bạn đang có lượt truy cập cao. Hãy thêm nhiều bài viết về các địa danh đang HOT.</p>
                                 <button className="px-4 py-2 bg-white text-primary rounded-xl text-xs font-bold hover:scale-105 transition-transform border-none cursor-pointer">Viết bài ngay</button>
@@ -133,19 +132,19 @@ const Home = () => {
                                 <h3 className="text-sm font-bold font-headline uppercase leading-widest text-slate-400 mb-4" style={{margin: 0}}>Lối tắt hệ thống</h3>
                                 <div className="grid grid-cols-2 gap-3">
                                     <button className="p-3 rounded-2xl bg-surface-container-low hover:bg-primary-container/10 transition-colors flex flex-col items-center gap-2 border-none cursor-pointer group">
-                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform notranslate">settings</span>
+                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">settings</span>
                                         <span className="text-[10px] font-bold text-on-surface">Cài đặt</span>
                                     </button>
                                     <button className="p-3 rounded-2xl bg-surface-container-low hover:bg-primary-container/10 transition-colors flex flex-col items-center gap-2 border-none cursor-pointer group">
-                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform notranslate">description</span>
+                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">description</span>
                                         <span className="text-[10px] font-bold text-on-surface">Bài viết</span>
                                     </button>
                                     <button className="p-3 rounded-2xl bg-surface-container-low hover:bg-primary-container/10 transition-colors flex flex-col items-center gap-2 border-none cursor-pointer group">
-                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform notranslate">category</span>
+                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">category</span>
                                         <span className="text-[10px] font-bold text-on-surface">Danh mục</span>
                                     </button>
                                     <button className="p-3 rounded-2xl bg-surface-container-low hover:bg-primary-container/10 transition-colors flex flex-col items-center gap-2 border-none cursor-pointer group">
-                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform notranslate">analytics</span>
+                                        <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">analytics</span>
                                         <span className="text-[10px] font-bold text-on-surface">Báo cáo</span>
                                     </button>
                                 </div>

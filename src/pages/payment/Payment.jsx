@@ -72,7 +72,7 @@ const Payment = () => {
                         </div>
                         <div className="flex gap-3">
                             <button className="px-4 py-2 bg-surface-container-lowest text-on-surface font-semibold rounded-lg flex items-center gap-2 hover:bg-surface-container-high transition-colors" style={{ border: 'none', cursor: 'pointer' }}>
-                                <span className="material-symbols-outlined text-xl notranslate" data-icon="file_download">file_download</span>
+                                <span className="material-symbols-outlined text-xl" data-icon="file_download">file_download</span>
                                 <span>Xuất báo cáo</span>
                             </button>
                         </div>
@@ -83,12 +83,12 @@ const Payment = () => {
                         {/* Total Revenue */}
                         <div className="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
-                                <span className="material-symbols-outlined text-6xl notranslate" data-icon="account_balance_wallet">account_balance_wallet</span>
+                                <span className="material-symbols-outlined text-6xl" data-icon="account_balance_wallet">account_balance_wallet</span>
                             </div>
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-xs font-bold font-inter uppercase tracking-wider text-slate-500">Tổng doanh thu</span>
                                 <span className="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[12px] notranslate" data-icon="trending_up">trending_up</span>
+                                    <span className="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span>
                                     +12.5%
                                 </span>
                             </div>
@@ -99,12 +99,12 @@ const Payment = () => {
                         {/* Successful Transactions */}
                         <div className="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
-                                <span className="material-symbols-outlined text-6xl notranslate" data-icon="check_circle">check_circle</span>
+                                <span className="material-symbols-outlined text-6xl" data-icon="check_circle">check_circle</span>
                             </div>
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-xs font-bold font-inter uppercase tracking-wider text-slate-500">Giao dịch thành công</span>
                                 <span className="px-2 py-1 bg-green-100 text-green-700 text-[10px] font-bold rounded-full flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[12px] notranslate" data-icon="trending_up">trending_up</span>
+                                    <span className="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span>
                                     +8.2%
                                 </span>
                             </div>
@@ -115,12 +115,12 @@ const Payment = () => {
                         {/* Pending Payments */}
                         <div className="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group border-l-4 border-tertiary">
                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
-                                <span className="material-symbols-outlined text-6xl notranslate" data-icon="pending">pending</span>
+                                <span className="material-symbols-outlined text-6xl" data-icon="pending">pending</span>
                             </div>
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-xs font-bold font-inter uppercase tracking-wider text-slate-500">Đang chờ xử lý</span>
                                 <span className="px-2 py-1 bg-tertiary-fixed text-tertiary text-[10px] font-bold rounded-full flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[12px] notranslate" data-icon="schedule">schedule</span>
+                                    <span className="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span>
                                     24h qua
                                 </span>
                             </div>
@@ -166,13 +166,13 @@ const Payment = () => {
                         <div className="w-48">
                             <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1">Khoảng ngày</label>
                             <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2 shadow-sm h-[36px]">
-                                <span className="material-symbols-outlined text-sm text-slate-400 notranslate" data-icon="calendar_today">calendar_today</span>
+                                <span className="material-symbols-outlined text-sm text-slate-400" data-icon="calendar_today">calendar_today</span>
                                 <span className="text-sm">01/10 - 15/10</span>
                             </div>
                         </div>
                         <div className="self-end pb-1">
                             <button className="bg-primary text-white w-10 h-10 rounded-lg hover:scale-105 transition-transform flex items-center justify-center border-none cursor-pointer">
-                                <span className="material-symbols-outlined notranslate" data-icon="filter_list">filter_list</span>
+                                <span className="material-symbols-outlined" data-icon="filter_list">filter_list</span>
                             </button>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ const Payment = () => {
                                             <td className="px-6 py-4 text-sm text-slate-500">{new Date(booking.createdAt).toLocaleDateString("vi-VN")}</td>
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-2">
-                                                    <span className="material-symbols-outlined text-lg text-slate-400 notranslate" data-icon="credit_card">credit_card</span>
+                                                    <span className="material-symbols-outlined text-lg text-slate-400" data-icon="credit_card">credit_card</span>
                                                     <span className="text-xs font-medium">Hệ thống</span>
                                                 </div>
                                             </td>
@@ -227,7 +227,7 @@ const Payment = () => {
                                             <td className="px-6 py-4 text-right space-x-2">
                                                 <button className="text-primary hover:text-blue-800 font-semibold text-xs transition-colors bg-transparent border-none cursor-pointer">Chi tiết</button>
                                                 <button className="text-slate-400 hover:text-primary transition-colors bg-transparent border-none cursor-pointer flex-inline align-middle">
-                                                    <span className="material-symbols-outlined text-lg notranslate" data-icon="print">print</span>
+                                                    <span className="material-symbols-outlined text-lg" data-icon="print">print</span>
                                                 </button>
                                             </td>
                                         </tr>
@@ -243,13 +243,13 @@ const Payment = () => {
                             <div className="text-xs text-slate-500 font-medium">Hiển thị danh sách của {filteredBookings.length} giao dịch</div>
                             <div className="flex gap-1" style={{ alignItems: 'center' }}>
                                 <button className="p-2 bg-white rounded border border-outline-variant/30 text-slate-400 hover:text-primary transition-colors flex items-center justify-center cursor-pointer">
-                                    <span className="material-symbols-outlined text-sm notranslate" data-icon="chevron_left">chevron_left</span>
+                                    <span className="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
                                 </button>
                                 <button className="px-3 py-1 bg-primary text-white rounded text-xs font-bold border-none cursor-pointer" style={{ height: 'max-content' }}>1</button>
                                 <button className="px-3 py-1 bg-white border border-outline-variant/30 rounded text-xs font-medium hover:bg-slate-50 cursor-pointer" style={{ height: 'max-content' }}>2</button>
                                 <button className="px-3 py-1 bg-white border border-outline-variant/30 rounded text-xs font-medium hover:bg-slate-50 cursor-pointer" style={{ height: 'max-content' }}>3</button>
                                 <button className="p-2 bg-white rounded border border-outline-variant/30 text-slate-400 hover:text-primary transition-colors flex items-center justify-center cursor-pointer">
-                                    <span className="material-symbols-outlined text-sm notranslate" data-icon="chevron_right">chevron_right</span>
+                                    <span className="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
                                 </button>
                             </div>
                         </div>
@@ -296,7 +296,7 @@ const Payment = () => {
                             <div className="space-y-3" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                 <button className="w-full py-2 bg-white/20 hover:bg-white/30 backdrop-blur rounded-lg text-sm font-semibold transition-colors text-white border-none cursor-pointer">Lịch sử hóa đơn đã xuất</button>
                                 <button className="w-full py-2 bg-white text-primary rounded-lg text-sm font-bold shadow-lg shadow-black/10 hover:scale-[1.02] transition-transform border-none cursor-pointer flex items-center justify-center gap-2">
-                                    <span className="material-symbols-outlined text-sm notranslate" data-icon="receipt_long">receipt_long</span>
+                                    <span className="material-symbols-outlined text-sm" data-icon="receipt_long">receipt_long</span>
                                     Tạo hóa đơn mới
                                 </button>
                             </div>

@@ -2,7 +2,7 @@ export const userColumns = [
   { field: "_id", headerName: "ID", width: 70 },
   {
     field: "user",
-    headerName: "Người dùng",
+    headerName: "User",
     width: 230,
     renderCell: (params) => {
       return (
@@ -31,8 +31,20 @@ export const userColumns = [
   },
   {
     field: "phone",
-    headerName: "Điện thoại",
+    headerName: "Số điện thoại",
     width: 100,
+  },
+  {
+    field: "isBlocked",
+    headerName: "Trạng thái",
+    width: 130,
+    renderCell: (params) => {
+      return (
+        <div className={`cellWithStatus ${params.row.isBlocked ? "blocked" : "active"}`}>
+          {params.row.isBlocked ? "Bị khóa" : "Hoạt động"}
+        </div>
+      );
+    },
   },
 ];
 
@@ -52,16 +64,16 @@ export const tourColumns = [
     },
   },
   { field: "duration", headerName: "Thời gian", width: 150 },
-  { field: "price", headerName: "Giá (VNĐ)", width: 120 },
+  { field: "price", headerName: "Giá", width: 120 },
 ];
 
 export const bookingColumns = [
-  { field: "_id", headerName: "Mã đặt chỗ", width: 220 },
-  { field: "user", headerName: "Khách hàng", width: 150 },
-  { field: "productType", headerName: "Loại sản phẩm", width: 130 },
+  { field: "_id", headerName: "ID Đặt chỗ", width: 220 },
+  { field: "user", headerName: "Người dùng", width: 150 },
+  { field: "productType", headerName: "Loại sản phẩm", width: 120 },
   {
     field: "checkIn",
-    headerName: "Ngày nhận",
+    headerName: "Check-In",
     width: 120,
     renderCell: (params) => {
       return params.row.checkIn ? new Date(params.row.checkIn).toLocaleDateString('vi-VN') : "";
@@ -69,7 +81,7 @@ export const bookingColumns = [
   },
   {
     field: "checkOut",
-    headerName: "Ngày trả",
+    headerName: "Check-Out",
     width: 120,
     renderCell: (params) => {
       return params.row.checkOut ? new Date(params.row.checkOut).toLocaleDateString('vi-VN') : "";
@@ -83,80 +95,115 @@ export const bookingColumns = [
       );
     }
   },
-  { field: "totalPrice", headerName: "Tổng tiền (VNĐ)", width: 130 },
+  { field: "totalPrice", headerName: "Tổng giá", width: 100 },
 ];
 
-
 export const reviewColumns = [
-  { field: "_id", headerName: "Mã đánh giá", width: 220 },
-  { field: "user", headerName: "Người dùng", width: 200 },
-  { field: "productId", headerName: "Mã Sản Phẩm", width: 200 },
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "user", headerName: "Người dùng (ID)", width: 200 },
+  { field: "product", headerName: "Sản phẩm (ID)", width: 200 },
+  { field: "rating", headerName: "Đánh giá", width: 100 },
+  { field: "comment", headerName: "Bình luận", width: 300 },
+];
+
+export const ticketColumns = [
+  { field: "_id", headerName: "Mã hỗ trợ", width: 220 },
+  { field: "user", headerName: "Người dùng (ID)", width: 200 },
+  { field: "title", headerName: "Tiêu đề", width: 250 },
   {
-    field: "rating",
-    headerName: "Điểm đánh giá",
-    width: 120,
+    field: "status",
+    headerName: "Trạng thái",
+    width: 150,
     renderCell: (params) => {
       return (
-        <div style={{ color: "#f59e0b", fontWeight: "bold" }}>
-          {params.row.rating} ⭐
+        <div className={`cellWithStatus ${params.row.status}`}>
+          {params.row.status}
         </div>
       );
     },
   },
-  { field: "comment", headerName: "Nội dung bình luận", width: 350 },
-];
-
-export const ticketColumns = [
-  { field: "_id", headerName: "Mã phiếu hỗ trợ", width: 220 },
-  { field: "user", headerName: "Người gửi", width: 200 },
-  { field: "title", headerName: "Tiêu đề", width: 250 },
-  { field: "status", headerName: "Trạng thái", width: 130, renderCell: (params) => {
-      let color = "gray";
-      let label = params.row.status;
-      if (params.row.status === "Open") { color = "green"; label = "Mở"; }
-      if (params.row.status === "In Progress") { color = "orange"; label = "Đang xử lý"; }
-      if (params.row.status === "Closed") { color = "red"; label = "Đã đóng"; }
-      return <div style={{ color, fontWeight: "bold" }}>{label}</div>;
+  {
+    field: "updatedAt",
+    headerName: "Cập nhật cuối",
+    width: 150,
+    renderCell: (params) => {
+      return params.row.updatedAt ? new Date(params.row.updatedAt).toLocaleDateString('vi-VN') : "";
     }
   },
 ];
 
+export const hotelColumns = [
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "name", headerName: "Tên", width: 200 },
+  { field: "type", headerName: "Loại", width: 100 },
+  { field: "city", headerName: "Thành phố", width: 150 },
+  { field: "cheapestPrice", headerName: "Giá rẻ nhất", width: 120 },
+];
+
+export const roomColumns = [
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "title", headerName: "Tiêu đề", width: 200 },
+  { field: "desc", headerName: "Mô tả", width: 250 },
+  { field: "price", headerName: "Giá", width: 100 },
+  { field: "maxPeople", headerName: "Số người tối đa", width: 120 },
+];
+
 export const flightColumns = [
-  { field: "_id", headerName: "ID", width: 200 },
-  { field: "airline", headerName: "Hãng bay", width: 150 },
+  { field: "_id", headerName: "ID", width: 220 },
   { field: "flightNumber", headerName: "Số hiệu", width: 100 },
-  { field: "origin", headerName: "Từ", width: 150 },
-  { field: "destination", headerName: "Đến", width: 150 },
-  {
-    field: "departureTime",
-    headerName: "Khởi hành",
-    width: 160,
-    renderCell: (params) =>
-      params.row.departureTime
-        ? new Date(params.row.departureTime).toLocaleString("vi-VN")
-        : "",
-  },
-  { field: "price", headerName: "Giá vé (VNĐ)", width: 130 },
-  { field: "capacity", headerName: "Số ghế", width: 90 },
-  { field: "bookedSeats", headerName: "Đã đặt", width: 90 },
+  { field: "airline", headerName: "Hãng bay", width: 150 },
+  { field: "origin", headerName: "Từ", width: 120 },
+  { field: "destination", headerName: "Đến", width: 120 },
+  { field: "price", headerName: "Giá", width: 100 },
 ];
 
 export const carColumns = [
-  { field: "_id", headerName: "ID", width: 200 },
-  { field: "brand", headerName: "Hãng xe", width: 120 },
-  { field: "model", headerName: "Model", width: 150 },
-  { field: "type", headerName: "Loại xe", width: 120 },
-  { field: "pricePerDay", headerName: "Giá/ngày (VNĐ)", width: 140 },
-  { field: "seats", headerName: "Số chỗ", width: 90 },
-  { field: "transmission", headerName: "Hộp số", width: 120 },
-  {
-    field: "available",
-    headerName: "Còn xe",
-    width: 90,
-    renderCell: (params) => (
-      <div style={{ color: params.row.available ? "green" : "red", fontWeight: "bold" }}>
-        {params.row.available ? "Có" : "Không"}
-      </div>
-    ),
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "brand", headerName: "Hãng", width: 120 },
+  { field: "model", headerName: "Kiểu xe", width: 150 },
+  { field: "type", headerName: "Loại", width: 120 },
+  { field: "pricePerDay", headerName: "Giá/Ngày", width: 100 },
+];
+
+export const taxiColumns = [
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "company", headerName: "Công ty", width: 150 },
+  { field: "carModel", headerName: "Dòng xe", width: 150 },
+  { field: "driverName", headerName: "Tài xế", width: 150 },
+  { field: "price", headerName: "Giá", width: 100 },
+];
+
+export const activityColumns = [
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "title", headerName: "Tên hoạt động", width: 250 },
+  { field: "city", headerName: "Thành phố", width: 150 },
+  { field: "price", headerName: "Giá", width: 100 },
+  { field: "duration", headerName: "Thời lượng", width: 120 },
+];
+
+export const couponColumns = [
+  { field: "code", headerName: "Mã", width: 150 },
+  { field: "discountValue", headerName: "Giá trị", width: 100 },
+  { field: "discountType", headerName: "Loại", width: 120 },
+  { 
+    field: "isActive", 
+    headerName: "Trạng thái", 
+    width: 120, 
+    renderCell: (params) => {
+      return (
+        <div className={`cellWithStatus ${params.row.isActive ? "active" : "blocked"}`}>
+          {params.row.isActive ? "Hiệu lực" : "Hết hạn"}
+        </div>
+      );
+    } 
   },
 ];
+
+export const deliveryColumns = [
+  { field: "_id", headerName: "ID", width: 220 },
+  { field: "product", headerName: "Sản phẩm", width: 200 },
+  { field: "customer", headerName: "Khách hàng", width: 150 },
+  { field: "status", headerName: "Trạng thái", width: 120 },
+];
+
+

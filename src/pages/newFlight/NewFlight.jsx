@@ -18,11 +18,11 @@ const NewFlight = () => {
     e.preventDefault();
     try {
       await axios.post("/flights", info);
-      alert("Flight created successfully!");
+      alert("Tạo flight thành công!");
       navigate("/flights");
     } catch (err) {
       console.log(err);
-      alert("Failed to create flight! Check console for details.");
+      alert("Lỗi khi tạo flight! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -32,7 +32,7 @@ const NewFlight = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Flight</h1>
+          <h1>Thêm Chuyến bay</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -48,7 +48,7 @@ const NewFlight = () => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

@@ -51,8 +51,8 @@ const Login = () => {
             {/* Header */}
             <header className="authHeader">
                 <div className="headerTop">
-                    <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src="/assets/logo.svg" alt="HTCT Booking" style={{ height: "42px", objectFit: "contain" }} />
+                    <Link to="/" className="logo">
+                        HTCT<span>Booking</span>
                     </Link>
                     <div className="navRight">
                         <ul>
@@ -64,8 +64,8 @@ const Login = () => {
                 <div className="headerCategories">
                     <ul style={{ gap: "25px" }}>
                         <li className="active">Quản trị Hệ thống</li>
-                        <li style={{ cursor: 'pointer' }}>
-                            <a href="http://localhost:3000" target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", display: "block", width: "100%", height: "100%" }}>
+                        <li>
+                            <a href="http://localhost:3000" style={{ color: "inherit", textDecoration: "none" }}>
                                 Trang chủ Website
                             </a>
                         </li>

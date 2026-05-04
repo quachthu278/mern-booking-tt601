@@ -88,7 +88,7 @@ const Category = () => {
                             onClick={() => handleOpenModal()}
                             className="flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all active:scale-95 border-none cursor-pointer text-sm"
                         >
-                            <span className="material-symbols-outlined text-[20px] notranslate">add</span>
+                            <span className="material-symbols-outlined text-[20px]">add</span>
                             <span>Thêm Danh mục Mới</span>
                         </button>
                     </div>
@@ -96,7 +96,7 @@ const Category = () => {
                     {/* Filters & Stats Row - Fixed Grid to prevent overlap */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
                         <div className="lg:col-span-8 relative h-16 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-md transition-all flex items-center overflow-hidden group">
-                            <span className="material-symbols-outlined absolute left-5 text-slate-300 group-hover:text-primary transition-colors notranslate">category_search</span>
+                            <span className="material-symbols-outlined absolute left-5 text-slate-300 group-hover:text-primary transition-colors">category_search</span>
                             <input className="w-full h-full pl-14 pr-6 bg-transparent border-none text-sm font-bold outline-none text-slate-700 placeholder:text-slate-300" placeholder="Tìm kiếm danh mục tour..." type="text" />
                         </div>
                         <div className="lg:col-span-4 flex gap-3 h-16">
@@ -109,7 +109,7 @@ const Category = () => {
                                <div className="absolute top-0 right-0 w-12 h-12 bg-primary/5 rounded-full translate-x-4 -translate-y-4"></div>
                            </div>
                            <button className="w-16 h-16 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all border-none cursor-pointer flex items-center justify-center text-slate-400 hover:text-primary active:scale-90 shrink-0">
-                               <span className="material-symbols-outlined text-[28px] notranslate">tune</span>
+                               <span className="material-symbols-outlined text-[28px]">tune</span>
                            </button>
                         </div>
                     </div>
@@ -126,7 +126,7 @@ const Category = () => {
                                 <div key={cat._id} className="bg-white rounded-3xl p-6 group transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 border border-slate-100 flex flex-col">
                                     <div className="flex justify-between items-start mb-6">
                                         <div className="w-14 h-14 rounded-2xl bg-slate-50 text-primary flex items-center justify-center shadow-inner group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                                            <span className="material-symbols-outlined text-[32px] notranslate">{cat.icon || 'category'}</span>
+                                            <span className="material-symbols-outlined text-[32px]">{cat.icon || 'category'}</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-2">
                                             <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider ${cat.status === 'Active' ? 'bg-green-50 text-green-600' : 'bg-slate-50 text-slate-400'}`}>
@@ -142,13 +142,13 @@ const Category = () => {
                                             onClick={() => handleOpenModal(cat)}
                                             className="flex-1 py-2.5 px-3 bg-slate-50 hover:bg-primary hover:text-white rounded-xl text-[11px] font-black transition-all flex items-center justify-center gap-2 border-none cursor-pointer text-slate-500"
                                         >
-                                            <span className="material-symbols-outlined text-[16px] notranslate">edit_note</span> SỬA
+                                            <span className="material-symbols-outlined text-[16px]">edit_note</span> SỬA
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(cat._id)}
                                             className="w-10 h-10 bg-red-50 hover:bg-red-500 text-red-500 hover:text-white rounded-xl transition-all border-none cursor-pointer flex items-center justify-center"
                                         >
-                                            <span className="material-symbols-outlined text-[20px] notranslate">delete_sweep</span>
+                                            <span className="material-symbols-outlined text-[20px]">delete_sweep</span>
                                         </button>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@ const Category = () => {
                         ) : (
                             <div className="col-span-full py-32 bg-white rounded-[40px] border-2 border-dashed border-slate-100 text-center shadow-sm">
                                 <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-200">
-                                    <span className="material-symbols-outlined text-5xl notranslate">category_search</span>
+                                    <span className="material-symbols-outlined text-5xl">category_search</span>
                                 </div>
                                 <h4 className="text-xl font-bold text-slate-800 m-0 mb-1 tracking-tight">Chưa có danh mục nào</h4>
                                 <p className="text-slate-400 text-sm mb-8">Hãy nhấn nút bên dưới để tạo danh mục đầu tiên của bạn.</p>
@@ -215,7 +215,7 @@ const Category = () => {
                                         </div>
                                     </div>
                                     <button onClick={() => setShowModal(false)} className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 hover:bg-slate-50 text-slate-400 hover:text-slate-800 cursor-pointer transition-all flex items-center justify-center group active:scale-90">
-                                        <span className="material-symbols-outlined text-[20px] group-hover:rotate-90 transition-transform notranslate">close</span>
+                                        <span className="material-symbols-outlined text-[20px] group-hover:rotate-90 transition-transform">close</span>
                                     </button>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@ const Category = () => {
                                         className="order-1 sm:order-2 flex-[2] py-4 bg-primary text-white rounded-2xl text-[11px] font-black shadow-[0_15px_30px_-5px_rgba(var(--primary-rgb),0.3)] hover:scale-[1.02] hover:shadow-primary/40 active:scale-95 transition-all border-none cursor-pointer flex items-center justify-center gap-3 tracking-[0.1em]"
                                     >
                                         <span>{isEditing ? "CẬP NHẬT NGAY" : "XÁC NHẬN TẠO MỚI"}</span>
-                                        <span className="material-symbols-outlined text-[18px] notranslate">{isEditing ? "verified" : "rocket_launch"}</span>
+                                        <span className="material-symbols-outlined text-[18px]">{isEditing ? "verified" : "rocket_launch"}</span>
                                     </button>
                                 </div>
                             </form>

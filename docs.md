@@ -1,70 +1,73 @@
-# Tài liệu Cấu trúc & Chức năng Hệ thống Quản trị (Booking Admin)
+# Tài liệu Hệ thống: Danh sách các chức năng chính
 
-Tài liệu này tổng hợp danh sách tất cả các trang, đường dẫn (URL) và nhóm chức năng đã được xây dựng và kết nối trong ứng dụng Quản trị viên, dựa trên cấu hình Router mới nhất.
+Tài liệu này tổng hợp toàn bộ các chức năng (features) đang có mặt trong hệ thống Quản trị (Admin Dashboard) và các Backend API của ứng dụng đặt chỗ du lịch.
 
----
+## 1. Chức năng Quản trị viên (Admin Dashboard)
 
-## 🔐 1. Xác thực & Phân quyền (Authentication)
+Hệ thống quản trị cung cấp giao diện tương tác dành cho Admin với các nhóm chức năng sau:
 
-*   **`/login`** - **Trang Đăng nhập**: Nơi quản trị viên hoặc nhân viên xác thực thông tin đăng nhập vào hệ thống.
-*   **`/register`** - **Trang Đăng ký**: Cho phép tạo các tài khoản cấp Quản trị viên nội bộ mới.
+### 1.1 Xác thực & Phân quyền (Authentication)
+*   **Đăng nhập (Login):** Đăng nhập vào hệ thống quản trị.
+*   **Đăng ký (Register):** Tạo tài khoản quản trị mới.
+*   **Đăng xuất (Logout):** Đăng xuất khỏi hệ thống an toàn.
+*   **Bảo vệ Route (Protected Routes):** Bảo vệ yêu cầu quyền truy cập đã được xác thực cho toàn bộ các trang nội bộ của admin.
 
----
+### 1.2 Bảng điều khiển (Dashboard)
+*   **Trang chủ tổng quan (Home/Dashboard):** Hiển thị tổng quan báo cáo.
+*   **Giao diện Dark/Light Mode:** Tính năng chuyển đổi giao diện sáng (Light Mode) và tối (Dark Mode).
 
-## 📊 2. Bảng điều khiển Trung tâm (Dashboard)
+### 1.3 Quản lý Dịch vụ (Services Management)
+*   **Tour Du lịch (Tours):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết tour.
+*   **Khách sạn (Hotels):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết khách sạn.
+*   **Phòng (Rooms):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết phòng.
+*   **Chuyến bay (Flights):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết chuyến bay.
+*   **Thuê Xe Xứ Tự lái (Cars):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết xe tự lái.
+*   **Taxi (Taxis):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết dịch vụ Taxi.
+*   **Hoạt động & Trải nghiệm (Activities):** Danh sách, Thêm mới, Chỉnh sửa/Chi tiết các hoạt động giải trí.
 
-*   **`/`** - **Trang Chủ (Home)**: Bức tranh toàn cảnh, tóm tắt các số liệu như Tổng doanh thu, Tổng số người dùng, Thống kê đơn đặt chỗ cùng các lối tắt thao tác nhanh (Tạo Tour, Cài đặt).
+### 1.4 Quản lý Khuyến mãi & Vận tải (Coupons & Delivery)
+*   **Mã giảm giá (Coupons):** Danh sách, Thêm mới, Chi tiết mã ưu đãi/giảm giá.
+*   **Vận chuyển (Delivery):** Danh sách, Thêm mới, Chi tiết dịch vụ vận chuyển.
 
----
+### 1.5 Quản lý Đặt chỗ (Bookings Management)
+*   **Danh sách Đặt chỗ (Bookings List):** Liệt kê thông tin tất cả các giao dịch đặt chỗ của người dùng.
+*   **Thêm Đặt chỗ Mới (New Booking):** Admin có thể tạo thủ công trạng thái/vé đặt chỗ cho khách hàng.
+*   **Chi tiết Đặt chỗ (Single Booking):** Kiểm tra trạng thái thanh toán và thông tin của từng lượt đặt chỗ.
 
-## 🗃️ 3. Quản lý Hệ thống Cốt lõi (Core Management)
+### 1.6 Hành chính & Người dùng (User Management)
+*   **Cá nhân (Profile):** Xem chi tiết thông tin, cài đặt hồ sơ quản trị viên.
+*   **Danh sách Tài khoản (Users List):** Quản lý danh sách người dùng trong hệ thống.
+*   **Thêm Người dùng Mới (New User):** Cấp tài khoản mới hoặc quản lý user.
+*   **Hồ sơ Người dùng (Single User):** Xem chi tiết và thao tác với hồ sơ của một tài khoản/người dùng cụ thể.
 
-Các hoạt động lõi sinh ra doanh thu trong mảng Booking.
+### 1.7 Chăm sóc khách hàng (Customer Support & Reviews)
+*   **Đánh giá (Reviews):** Xem và quản lý các đánh giá dịch vụ từ khách hàng.
+*   **Hỗ trợ (Support Tickets):** Danh sách các yêu cầu hỗ trợ và trang chi tiết (Single Ticket) để phản hồi khách hàng.
 
-### Khách hàng (Users)
-*   **`/users`** - **Danh sách Khách hàng**: Liệt kê toàn bộ người dùng đã đăng ký trên hệ thống.
-*   **`/users/:userId`** - **Chi tiết Khách hàng**: Xem thông tin cụ thể (Email, SĐT) và lịch sử hoạt động của người dùng cụ thể.
-*   **`/users/new`** - **Thêm Khách hàng mới**: Form nhập liệu tạo thủ công hồ sơ người dùng mới.
+### 1.8 Báo cáo & Thống kê (Stats)
+*   **Báo cáo số liệu (Stats/Analytics):** Xem các thống kê kinh doanh, theo dõi số liệu và biểu đồ dữ liệu nâng cao.
 
-### Sản phẩm Dịch vụ (Tours, Flights, Cars)
-*   **`/tours`**, **`/flights`**, **`/cars`** - **Danh sách Dịch vụ**: Tổng hợp tất cả các gói Tour nội địa/quốc tế, Chuyến bay, và Xe cho thuê đang hoạt động.
-*   **`/tours/:productId`**, **`/flights/:productId`**, **`/cars/:productId`** - **Chi tiết/Tùy chỉnh Dịch vụ**: Giao diện xem và cập nhật chi tiết một sản phẩm có sẵn.
-*   **`/tours/new`**, **`/flights/new`**, **`/cars/new`** - **Thêm Dịch vụ mới**: Điền thông tin chuẩn bị mở bán (Có cấu hình upload ảnh, sức chứa, giá cả, giờ đi/về...).
+### 1.9 Mở rộng: Thanh toán (Payments), Danh mục (Categories) & Bài viết (Articles)
+*   **Quản lý Thanh toán (Payments):** Theo dõi đối soát giao dịch và thông tin cổng thanh toán.
+*   **Quản lý Danh mục (Categories):** Cấu hình, thêm mới và quản lý các loại danh mục phân loại dịch vụ.
+*   **Quản lý Bài viết (Articles):** Tạo mới (New Article), xem danh sách các tin tức/blogs trên hệ thống.
 
-### Đặt chỗ (Bookings - Đơn hàng)
-*   **`/bookings`** - **Danh sách Đặt chỗ**: Nơi theo dõi các giao dịch từ khách hàng (chờ xác nhận, hoàn tất, đã duyệt).
-*   **`/bookings/:productId`** - **Chi tiết Biên lai/Đặt phòng**: Kiểm tra dòng tiền và yêu cầu đặc biệt của khách hàng để xử lý trạng thái.
-*   **`/bookings/new`** - **Tạo lệnh Đặt chỗ**: Quản trị viên tự tay book phòng/book dịch vụ cho khách khi họ yêu cầu trực tiếp qua Hotline.
-
----
-
-## 🛒 4. Tính năng Mở rộng & Phụ trợ
-
-*   **`/stats`** - **Báo cáo Thống kê**: Trang xem lại toàn bộ doanh thu với các chỉ số phân tích, biểu đồ sâu hơn 6 tháng gần nhất.
-*   **`/payments`** - **Dòng tiền & Thanh toán**: Đối soát lịch sử nạp rút, xác thực giao dịch Momo/Banking/Stripe.
-*   **`/categories`** - **Danh mục hệ thống**: Quản lý nhóm phân loại dịch vụ (VD: Khách sạn 5 sao, Tour giá rẻ, Hoạt động ngoài trời).
-
----
-
-## 📰 5. Truyền thông & Tối ưu SEO (Nội dung)
-
-*   **`/articles`** - **Quản lý Bài viết/Blog**: Danh sách các bài tin tức du lịch, kinh nghiệm phượt.
-*   **`/articles/new`** - **Soạn thảo Bài viết**: Trình soạn thảo chuyên nghiệp có kèm chuẩn tối ưu Meta Title, Description và Ảnh bìa để đăng bài kéo tương tác cho Website chính.
-
----
-
-## ⚙️ 6. Cấu hình Cá nhân & Cài đặt
-
-*   **`/profile`** - **Hồ sơ Cá nhân**: Trang thông tin cá nhân của Quản trị viên đang vận hành hệ thống.
-*   **`/settings`** - **Cài đặt Tổng**: Các cấu hình hệ thống chuyên sâu (như Tùy chọn thay đổi mật khẩu, phân quyền,...).
+### 1.10 Cấu hình Hệ thống (System Settings)
+*   **Cài đặt (Settings):** Giao diện quản lý thiết lập chung, thay đổi thông tin website, cấu hình AI Model và quản lý API Key.
 
 ---
 
-## 🌐 7. Ngôn ngữ & Bản địa hóa
-
-*   Hệ thống Quản trị đã được đồng bộ hóa hoàn toàn sang **Tiếng Việt** bao gồm: Các thanh điều hướng, bảng dữ liệu (Datatable), nút thao tác (Thêm mới, Xem, Xóa), hộp thoại xác nhận và các trạng thái thanh toán/đơn hàng.
-*   Nút chuyển đổi bảng mã/ngôn ngữ đã được tối lược để đảm bảo hệ thống sử dụng duy nhất Tiếng Việt theo chuẩn.
-
----
-
-> ⚠️ **Bảo mật (Security):** Tắt cả các Router và Link trong nhóm từ số `2` đến `6` đều yêu cầu xác thực (`ProtectedRoute`). Bất cứ ai chưa đăng nhập đều bị điều hướng văng trở lại màn hình Đăng nhập (Login).
+## 2. Hệ thống API (Backend Modules)
+Tương ứng với trang Quản trị, hệ thống cấu thành từ các endpoint và service được hiện thực ở Backend bao gồm:
+*   **auth:** Xử lý logic đăng nhập, đăng ký, xác thực token.
+*   **users:** API quản trị thông tin người dùng (Lấy, Cập nhật, Khóa người dùng,...).
+*   **tours / hotels / rooms / cars / flights / taxis / activities:** API đa dạng hóa quản lý cấu hình các loại hình dịch vụ theo module.
+*   **bookings / tickets:** Quản lý mọi yêu cầu đặt vé và đặt phòng/chỗ.
+*   **delivery:** Quản lý vận chuyển và giao dịch logistic.
+*   **coupons:** API chuyên xử lý mã giảm giá (tạo/kiểm tra/áp dụng).
+*   **categories:** Phân loại định nghĩa loại hình dịch vụ.
+*   **reviews:** API xử lý hệ thống Đánh giá và Xếp hạng sản phẩm của người dùng.
+*   **articles:** Module xử lý bài viết dạng content/blog.
+*   **Support Tickets:** API dành cho quản lý hệ thống hỗ trợ vé tương tác (Support Tickets) nhằm trả lời kháng nghị và yêu cầu hỗ trợ từ khách hàng.
+*   **stats / logs / health:** API kiểm tra trạng thái hoạt động (healthcheck), lưu trữ log và truy vấn số liệu thống kê.
+*   **settings / ai:** API cung cấp cấu hình hệ thống bao gồm tích hợp Prompt/Model AI từ xa.

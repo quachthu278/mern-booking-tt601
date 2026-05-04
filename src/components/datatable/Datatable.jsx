@@ -24,37 +24,42 @@ const Datatable = ({ columns }) => {
   }, [data, path]);
 
   const handleDelete = async (id) => {
-    if (window.confirm("Bạn có chắc muốn xóa mục này không?")) {
+    if (window.confirm("Are you sure you want to delete this item?")) {
       try {
         await axios.delete(`/${path}/${id}`);
         setList(list.filter((item) => item._id !== id));
-        alert("Xóa thành công!");
+        alert("Item deleted successfully!");
       } catch (err) {
         console.error("Delete failed:", err);
-        alert("Xóa thất bại. Vui lòng kiểm tra console để biết thêm chi tiết.");
+        alert("Failed to delete item. Check console for details.");
       }
     }
   };
 
-  const handleBan = async (id) => {
-    if (window.confirm("Thực hiện đổi trạng thái Khóa / Mở khóa cho tài khoản này?")) {
-      try {
-        const res = await axios.put(`/${path}/${id}/block`);
-        setList(list.map((item) => (item._id === id ? res.data : item)));
-      } catch (err) {
-        console.error("Ban/Unban failed:", err);
-      }
+  const handleBlock = async (id) => {
+    try {
+      await axios.put(`/users/${id}/block`);
+      setList(list.map((item) => {
+        if (item._id === id) {
+          return { ...item, isBlocked: !item.isBlocked };
+        }
+        return item;
+      }));
+      // alert("User status updated successfully!");
+    } catch (err) {
+      console.error("Block failed:", err);
+      alert("Failed to update user status.");
     }
   };
 
   const actionColumn = [
     {
       field: "action",
-      headerName: "Thao tác",
-      width: 200,
+      headerName: "Action",
+      width: 250,
       renderCell: (params) => {
         return (
-          <div className="cellAction" style={{ gap: "10px", alignItems: "center" }}>
+          <div className="cellAction">
             <Link to={`/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">Xem</div>
             </Link>
@@ -66,19 +71,17 @@ const Datatable = ({ columns }) => {
             </div>
             {path === "users" && (
                 <div
-                className="banButton"
-                onClick={() => handleBan(params.row._id)}
-                style={{
-                  padding: "5px 10px", 
-                  borderRadius: "5px", 
-                  color: params.row.isBlocked ? "green" : "red", 
-                  border: `1px dotted ${params.row.isBlocked ? "green" : "red"}`, 
-                  cursor: "pointer",
-                  fontSize: "12px",
-                  fontWeight: "bold"
-                }}
+                    className="blockButton"
+                    onClick={() => handleBlock(params.row._id)}
+                    style={{
+                        padding: "2px 5px",
+                        borderRadius: "5px",
+                        color: params.row.isBlocked ? "green" : "crimson",
+                        border: params.row.isBlocked ? "1px dotted green" : "1px dotted crimson",
+                        cursor: "pointer",
+                    }}
                 >
-                {params.row.isBlocked ? "Mở khóa" : "Khóa"}
+                    {params.row.isBlocked ? "Mở khóa" : "Khóa"}
                 </div>
             )}
           </div>
@@ -90,11 +93,9 @@ const Datatable = ({ columns }) => {
     <div className="datatable">
       <div className="datatableTitle">
         <span style={{textTransform: "capitalize"}}>{path}</span>
-        {path !== "tickets" && path !== "reviews" && (
-          <Link to={`/${path}/new`} className="link">
-            Thêm mới
-          </Link>
-        )}
+        <Link to={`/${path}/new`} className="link">
+          Add New
+        </Link>
       </div>
       <DataGrid
         className="datagrid"

@@ -26,11 +26,11 @@ const NewBooking = () => {
     e.preventDefault();
     try {
       await axios.post("/bookings", info);
-      alert("Booking created successfully!");
+      alert("Tạo booking thành công!");
       navigate("/bookings");
     } catch (err) {
       console.log(err);
-      alert("Failed to create booking! Check console for details.");
+      alert("Lỗi khi tạo booking! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -40,7 +40,7 @@ const NewBooking = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Booking</h1>
+          <h1>Thêm Đặt chỗ</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -90,7 +90,7 @@ const NewBooking = () => {
                 <label>Special Requests</label>
                 <input id="specialRequests" type="text" onChange={handleChange} placeholder="Notes" />
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

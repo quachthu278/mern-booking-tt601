@@ -79,9 +79,9 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       widgetData = {
-        title: "BALANCE",
+        title: "SỐ DƯ",
         isMoney: true,
-        link: "See details",
+        link: "Xem chi tiết",
         icon: (
           <AccountBalanceWalletOutlinedIcon
             className="icon"

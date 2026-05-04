@@ -18,11 +18,11 @@ const NewCar = () => {
     e.preventDefault();
     try {
       await axios.post("/cars", info);
-      alert("Car Rental created successfully!");
+      alert("Tạo car rental thành công!");
       navigate("/cars");
     } catch (err) {
       console.log(err);
-      alert("Failed to create car rental! Check console for details.");
+      alert("Lỗi khi tạo car rental! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -32,7 +32,7 @@ const NewCar = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Car Rental</h1>
+          <h1>Thêm Thuê xe tự lái</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -48,7 +48,7 @@ const NewCar = () => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

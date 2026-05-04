@@ -18,11 +18,11 @@ const NewActivity = () => {
     e.preventDefault();
     try {
       await axios.post("/activities", info);
-      alert("Attraction created successfully!");
+      alert("Tạo attraction thành công!");
       navigate("/activities");
     } catch (err) {
       console.log(err);
-      alert("Failed to create attraction! Check console for details.");
+      alert("Lỗi khi tạo attraction! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -48,7 +48,7 @@ const NewActivity = () => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

@@ -17,9 +17,16 @@
       padding: 10px;
 
       .logoImg {
-        width: 140px;
-        height: auto;
+        width: 42px;
+        height: 42px;
         object-fit: contain;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 800;
+        color: #003B95;
+        letter-spacing: -0.5px;
       }
     }
   }

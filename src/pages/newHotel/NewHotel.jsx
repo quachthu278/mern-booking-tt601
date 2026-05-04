@@ -54,11 +54,11 @@ const NewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
-      alert("Hotel created successfully!");
+      alert("Tạo hotel thành công!");
       window.location.href = "/hotels";
     } catch (err) {
       console.log(err);
-      alert("Failed to create hotel! Check console for details.");
+      alert("Lỗi khi tạo hotel! Xem console để biết thêm chi tiết.");
     }
   };
   return (
@@ -84,7 +84,7 @@ const NewHotel = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -126,7 +126,7 @@ const NewHotel = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

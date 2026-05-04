@@ -23,11 +23,11 @@ const NewRoom = () => {
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
       await axios.post(`/rooms/${hotelId}`, { ...info, roomNumbers });
-      alert("Room created successfully!");
+      alert("Tạo room thành công!");
       window.location.href = "/rooms";
     } catch (err) {
       console.log(err);
-      alert("Failed to create room! Check console for details.");
+      alert("Lỗi khi tạo room! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -38,7 +38,7 @@ const NewRoom = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Room</h1>
+          <h1>Thêm Phòng nghỉ</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -75,7 +75,7 @@ const NewRoom = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

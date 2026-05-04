@@ -30,7 +30,7 @@ const NewCoupon = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Coupon</h1>
+          <h1>Thêm Mã giảm giá</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -46,7 +46,7 @@ const NewCoupon = () => {
                   />
                 </div>
               ))}
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

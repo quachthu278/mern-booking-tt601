@@ -42,11 +42,11 @@ const NewTour = () => {
       };
 
       await axios.post("/tours", newTour);
-      alert("🎉 Tạo tour hoạt động thành công!");
+      alert("Tạo tour thành công!");
       navigate("/tours");
     } catch (err) {
       console.log(err);
-      alert("❌ " + (err.response?.data?.message || err.response?.data || "Lỗi: Không thể tạo tour. Vui lòng kiểm tra lại thông tin (điền đủ mã tour, tên tour, code, v.v...)"));
+      alert("Lỗi khi tạo tour! Xem console để biết thêm chi tiết.");
     }
   };
 
@@ -56,7 +56,7 @@ const NewTour = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Tour</h1>
+          <h1>Thêm Tour du lịch</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -73,7 +73,7 @@ const NewTour = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"

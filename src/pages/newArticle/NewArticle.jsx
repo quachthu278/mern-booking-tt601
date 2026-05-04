@@ -83,7 +83,7 @@ const NewArticle = () => {
                                 onClick={() => navigate("/articles")}
                                 className="w-10 h-10 rounded-full bg-white shadow-sm border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all cursor-pointer"
                             >
-                                <span className="material-symbols-outlined text-xl notranslate">arrow_back</span>
+                                <span className="material-symbols-outlined text-xl">arrow_back</span>
                             </button>
                             <div>
                                 <h2 className="text-2xl font-bold font-headline tracking-tight" style={{margin: 0}}>Soạn thảo bài viết</h2>
@@ -118,7 +118,7 @@ const NewArticle = () => {
                             className={`px-6 py-3 text-sm font-bold transition-all border-none cursor-pointer relative ${activeTab === 'content' ? 'text-primary' : 'text-slate-400 opacity-60'}`}
                         >
                             <div className="flex items-center gap-2">
-                                <span className="material-symbols-outlined text-[20px] notranslate">description</span>
+                                <span className="material-symbols-outlined text-[20px]">description</span>
                                 Nội dung chính
                             </div>
                             {activeTab === 'content' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />}
@@ -129,7 +129,7 @@ const NewArticle = () => {
                             className={`px-6 py-3 text-sm font-bold transition-all border-none cursor-pointer relative ${activeTab === 'seo' ? 'text-primary' : 'text-slate-400 opacity-60'}`}
                         >
                             <div className="flex items-center gap-2">
-                                <span className="material-symbols-outlined text-[20px] notranslate">search_check</span>
+                                <span className="material-symbols-outlined text-[20px]">search_check</span>
                                 Tối ưu SEO
                             </div>
                             {activeTab === 'seo' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary" />}
@@ -174,7 +174,7 @@ const NewArticle = () => {
                                                     <img src={URL.createObjectURL(file)} alt="preview" className="w-full h-full object-cover" />
                                                 ) : (
                                                     <div className="text-center">
-                                                        <span className="material-symbols-outlined text-4xl text-slate-300 notranslate">add_photo_alternate</span>
+                                                        <span className="material-symbols-outlined text-4xl text-slate-300">add_photo_alternate</span>
                                                         <p className="text-[10px] font-bold text-slate-400 mt-2">Click để tải ảnh</p>
                                                     </div>
                                                 )}
@@ -188,15 +188,15 @@ const NewArticle = () => {
                                 <div className="md:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col overflow-hidden">
                                     {/* Simulated Toolbar */}
                                     <div className="flex items-center gap-1 p-2 border-b border-slate-100 bg-slate-50/50">
-                                        <button type="button" onClick={() => insertText("**", "**")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_bold</span></button>
-                                        <button type="button" onClick={() => insertText("_", "_")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_italic</span></button>
-                                        <button type="button" onClick={() => insertText("<u>", "</u>")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_underlined</span></button>
+                                        <button type="button" onClick={() => insertText("**", "**")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_bold</span></button>
+                                        <button type="button" onClick={() => insertText("_", "_")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_italic</span></button>
+                                        <button type="button" onClick={() => insertText("<u>", "</u>")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_underlined</span></button>
                                         <div className="w-[1px] h-4 bg-slate-200 mx-1" />
-                                        <button type="button" onClick={() => insertText("\n### ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_h3</span></button>
-                                        <button type="button" onClick={() => insertText("\n- ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_list_bulleted</span></button>
+                                        <button type="button" onClick={() => insertText("\n### ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_h3</span></button>
+                                        <button type="button" onClick={() => insertText("\n- ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
                                         <div className="w-[1px] h-4 bg-slate-200 mx-1" />
-                                        <button type="button" onClick={() => insertText("[", "](url)")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">link</span></button>
-                                        <button type="button" onClick={() => insertText("> ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px] notranslate">format_quote</span></button>
+                                        <button type="button" onClick={() => insertText("[", "](url)")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">link</span></button>
+                                        <button type="button" onClick={() => insertText("> ", "")} className="p-2 rounded hover:bg-white hover:shadow-sm text-slate-600 transition-all border-none cursor-pointer"><span className="material-symbols-outlined text-[18px]">format_quote</span></button>
                                     </div>
                                     <textarea 
                                         id="content"
@@ -213,7 +213,7 @@ const NewArticle = () => {
                                 <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm max-w-2xl mx-auto space-y-6">
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className="w-12 h-12 bg-green-50 text-green-600 rounded-full flex items-center justify-center">
-                                            <span className="material-symbols-outlined notranslate">network_check</span>
+                                            <span className="material-symbols-outlined">network_check</span>
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-bold" style={{margin:0}}>Cấu hình SEO</h3>
@@ -242,7 +242,7 @@ const NewArticle = () => {
                         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-5xl px-8 z-50">
                             <div className="bg-white/90 backdrop-blur-md p-3 px-8 rounded-full shadow-2xl border border-slate-200 flex justify-between items-center">
                                 <div className="hidden md:flex items-center gap-2">
-                                     <span className="material-symbols-outlined text-green-500 text-[18px] notranslate">auto_fix_high</span>
+                                     <span className="material-symbols-outlined text-green-500 text-[18px]">auto_fix_high</span>
                                      <span className="text-[11px] font-bold text-slate-500">Tự động lưu nháp bản mới nhất</span>
                                 </div>
                                 <div className="flex gap-2">
@@ -258,7 +258,7 @@ const NewArticle = () => {
                                         className="px-10 py-2.5 bg-primary text-white rounded-full text-xs font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 border-none cursor-pointer disabled:opacity-50"
                                     >
                                         {uploading ? "Đang xử lý..." : "Lưu & Xuất bản bài viết"}
-                                        {!uploading && <span className="material-symbols-outlined text-[16px] notranslate">rocket_launch</span>}
+                                        {!uploading && <span className="material-symbols-outlined text-[16px]">rocket_launch</span>}
                                     </button>
                                 </div>
                             </div>
