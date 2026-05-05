@@ -1,26 +1,59 @@
 .datatable {
   height: 600px;
   padding: 20px;
+  background: white;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
   
-  .datatableTitle{
+  .datatableTitle {
     width: 100%;
-    font-size: 24px;
-    color: gray;
-    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 
-    .link{
+    .link {
       text-decoration: none;
-      color: green;
-      font-size: 16px;
-      font-weight: 400;
-      border: 1px solid green;
-      padding: 5px;
-      border-radius: 5px;
+      color: #003B95;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1.5px solid #003B95;
+      padding: 8px 16px;
+      border-radius: 10px;
       cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+          background-color: #003B95;
+          color: white;
+          box-shadow: 0 4px 12px rgba(0, 59, 149, 0.3);
+      }
     }
+  }
+
+  .datagrid {
+      border: none;
+      
+      .MuiDataGrid-columnHeaders {
+          background-color: #f8fafc;
+          border-radius: 12px 12px 0 0;
+          color: #64748b;
+          font-weight: 600;
+      }
+      
+      .MuiDataGrid-cell {
+          color: #4b5563;
+          font-size: 14px;
+      }
+
+      .MuiDataGrid-footerContainer {
+          border-top: 1.5px solid #f1f5f9;
+      }
   }
 
   .cellWithImg {
@@ -28,51 +61,71 @@
     align-items: center;
 
     .cellImg {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       object-fit: cover;
-      margin-right: 20px;
+      margin-right: 12px;
+      border: 1.5px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   }
 
   .cellWithStatus {
-    padding: 5px;
-    border-radius: 5px;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
 
     &.active {
-      background-color: rgba(0, 128, 0, 0.05);
-      color: green;
+      background-color: #ecfdf5;
+      color: #10b981;
     }
     &.pending {
-      background-color: rgba(255, 217, 0, 0.05);
-      color: goldenrod;
+      background-color: #fffbeb;
+      color: #f59e0b;
     }
     &.passive {
-      background-color: rgba(255, 0, 0, 0.05);
-      color: crimson;
+      background-color: #fef2f2;
+      color: #ef4444;
     }
   }
 
   .cellAction {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 
     .viewButton {
-      padding: 2px 5px;
-      border-radius: 5px;
-      color: darkblue;
-      border: 1px dotted rgba(0, 0, 139, 0.596);
+      padding: 4px 10px;
+      border-radius: 8px;
+      color: #003B95;
+      background-color: #f0f7ff;
+      border: 1px solid #cce3ff;
       cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+
+      &:hover {
+          background-color: #003B95;
+          color: white;
+      }
     }
     
     .deleteButton {
-      padding: 2px 5px;
-      border-radius: 5px;
-      color: crimson;
-      border: 1px dotted rgba(220, 20, 60, 0.6);
+      padding: 4px 10px;
+      border-radius: 8px;
+      color: #7f1d1d;
+      background-color: #fef2f2;
+      border: 1px solid #fee2e2;
       cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+
+      &:hover {
+          background-color: #ef4444;
+          color: white;
+      }
     }
   }
 }

@@ -5,15 +5,29 @@
   background-color: white;
 
   .top {
-    height: 50px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: #6439ff;
+    .logoContainer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+
+      .logoImg {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 800;
+        color: #003B95;
+        letter-spacing: -0.5px;
+      }
     }
   }
 
@@ -50,13 +64,14 @@
 
         .icon {
           font-size: 18px;
-          color: #7451f8;
+          color: #003B95;
+          opacity: 0.8;
         }
 
         span{
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 600;
-            color: #888;
+            color: #4b5563;
             margin-left: 10px;
         }
       }

@@ -1,28 +1,51 @@
 .table {
-  .cellWrapper {
-    display: flex;
-    align-items: center;
+    .cellWrapper {
+        display: flex;
+        align-items: center;
 
-    .image {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      margin-right: 10px;
-      object-fit: cover;
+        .image {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 12px;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
     }
-  }
 
-  .status {
-    padding: 5px;
-    border-radius: 5px;
+    .status {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
 
-    &.Approved {
-      color: green;
-      background-color: rgba(0, 128, 0, 0.151);
+        &.Approved {
+            background-color: #ecfdf5;
+            color: #10b981;
+        }
+        &.Pending {
+            background-color: #fffbeb;
+            color: #f59e0b;
+        }
     }
-    &.Pending {
-      color: goldenrod;
-      background-color: rgba(189, 189, 3, 0.103);
+}
+
+// DataGrid adjustments (if used)
+.datatable {
+    height: 600px;
+    padding: 20px;
+    
+    .datagrid {
+        border: none;
+        
+        .MuiDataGrid-columnHeaders {
+            background-color: #f8fafc;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .MuiDataGrid-cell {
+            color: #4b5563;
+        }
     }
-  }
 }

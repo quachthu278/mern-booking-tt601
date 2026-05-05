@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tour - Quản trị viên</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page-header {
+            background-color: #f5f5f5;
+            padding: 24px 0;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .header-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .add-tour-btn {
+            background-color: #0071C2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .add-tour-btn:hover {
+            background-color: #005A9E;
+        }
+
+        .tour-list-container {
+            max-width: 1140px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tour-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tour-table th,
+        .tour-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .tour-table th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .tour-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tour-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+
+        .status-draft {
+            background-color: #fef7e0;
+            color: #b06000;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-edit {
+            color: #0071C2;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+        }
+
+        .btn-delete {
+            color: #d93025;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+        }
+        
+        .tour-image {
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="booking-header" style="padding-bottom: 0;">
+        <div class="header-top">
+            <div class="logo">Quản trị viên du lịch</div>
+            <div class="nav-right">
+                <span class="currency">VND</span>
+                <div class="lang-flag">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png"
+                        alt="VN">
+                </div>
+                <div class="help-btn"><i class="fa-regular fa-circle-question"></i></div>
+                <a href="#" class="partner-link">Đăng tài sản của bạn</a>
+                <a href="login.html" class="btn-login-white">Đăng xuất</a>
+            </div>
+        </div>
+        
+        <nav class="categories">
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li class="active"><a href="#"><i class="fa-solid fa-map-location-dot"></i> Tours</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> Khách hàng</a></li>
+                <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="header-content">
+            <h1 class="header-title">Quản lý Tour Du Lịch</h1>
+            <a href="#" class="add-tour-btn"><i class="fa-solid fa-plus"></i> Thêm Tour Mới</a>
+        </div>
+    </div>
+
+    <main class="tour-list-container">
+        <table class="tour-table">
+            <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên Tour</th>
+                    <th>Điểm đến</th>
+                    <th>Thời gian</th>
+                    <th>Giá (VND)</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Hạ Long" class="tour-image"></td>
+                    <td><strong>Vịnh Hạ Long 2 Ngày 1 Đêm</strong></td>
+                    <td>Quảng Ninh, Việt Nam</td>
+                    <td>2 Ngày 1 Đêm</td>
+                    <td>2,500,000</td>
+                    <td><span class="status-badge status-active">Hoạt động</span></td>
+                    <td class="action-btns">
+                        <button class="btn-edit" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn-delete" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Sapa" class="tour-image"></td>
+                    <td><strong>Khám Phá Sapa Khởi Hành Hàng Ngày</strong></td>
+                    <td>Lào Cai, Việt Nam</td>
+                    <td>3 Ngày 2 Đêm</td>
+                    <td>3,200,000</td>
+                    <td><span class="status-badge status-active">Hoạt động</span></td>
+                    <td class="action-btns">
+                        <button class="btn-edit" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn-delete" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1583417311756-319b5e3240ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Phú Quốc" class="tour-image"></td>
+                    <td><strong>Nghỉ Dưỡng Vinpearl Phú Quốc</strong></td>
+                    <td>Kiên Giang, Việt Nam</td>
+                    <td>4 Ngày 3 Đêm</td>
+                    <td>5,800,000</td>
+                    <td><span class="status-badge status-draft">Bản nháp</span></td>
+                    <td class="action-btns">
+                        <button class="btn-edit" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn-delete" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="https://images.unsplash.com/photo-1523592121529-f6dde35f079e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Đà Nẵng" class="tour-image"></td>
+                    <td><strong>Tour Đà Nẵng - Hội An - Bà Nà Hills</strong></td>
+                    <td>Đà Nẵng, Việt Nam</td>
+                    <td>3 Ngày 2 Đêm</td>
+                    <td>4,100,000</td>
+                    <td><span class="status-badge status-active">Hoạt động</span></td>
+                    <td class="action-btns">
+                        <button class="btn-edit" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn-delete" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+
+</html>

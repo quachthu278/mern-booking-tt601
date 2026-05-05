@@ -31,20 +31,21 @@ const NewHotel = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const list = await Promise.all(
-        Object.values(files).map(async (file) => {
-          const data = new FormData();
-          data.append("file", file);
-          data.append("upload_preset", "upload");
-          const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/lamadev/image/upload",
-            data
-          );
-
-          const { url } = uploadRes.data;
-          return url;
-        })
-      );
+      let list = [];
+      if (files && files.length > 0) {
+        list = await Promise.all(
+          Object.values(files).map(async (file) => {
+            const data = new FormData();
+            data.append("file", file);
+            data.append("upload_preset", "upload");
+            const uploadRes = await axios.post(
+              "https://api.cloudinary.com/v1_1/lamadev/image/upload",
+              data
+            );
+            return uploadRes.data.url;
+          })
+        );
+      }
 
       const newhotel = {
         ...info,
@@ -53,7 +54,12 @@ const NewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
-    } catch (err) {console.log(err)}
+      alert("Tạo hotel thành công!");
+      window.location.href = "/hotels";
+    } catch (err) {
+      console.log(err);
+      alert("Lỗi khi tạo hotel! Xem console để biết thêm chi tiết.");
+    }
   };
   return (
     <div className="new">
@@ -78,7 +84,7 @@ const NewHotel = () => {
             <form>
               <div className="formInput">
                 <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
+                  Ảnh: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
                   type="file"
@@ -120,7 +126,7 @@ const NewHotel = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
+              <button onClick={handleClick}>Lưu</button>
             </form>
           </div>
         </div>

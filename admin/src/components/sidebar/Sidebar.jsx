@@ -1,16 +1,24 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import StoreIcon from "@mui/icons-material/Store";
-import InsertChartIcon from "@mui/icons-material/InsertChart";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import InsertChartIcon from "@mui/icons-material/InsertChart";
+import PaymentIcon from "@mui/icons-material/Payment";
+import CategoryIcon from "@mui/icons-material/Category";
+import ArticleIcon from "@mui/icons-material/Article";
+import SettingsIcon from "@mui/icons-material/Settings";
+import RateReviewIcon from "@mui/icons-material/RateReview";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import HotelIcon from "@mui/icons-material/Hotel";
+import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import FlightIcon from "@mui/icons-material/Flight";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import LocalTaxiIcon from "@mui/icons-material/LocalTaxi";
+import ExploreIcon from "@mui/icons-material/Explore";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/AuthContext";
@@ -23,99 +31,156 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">JIJIADMIN</span>
+          <div className="logoContainer">
+            <img src="/assets/logo.png" alt="HTCT Booking" className="logoImg" />
+            <span className="logo">HTCT Booking</span>
+          </div>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          <p className="title">CHÍNH</p>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
-              <span>Dashboard</span>
+              <span>Bảng điều khiển</span>
             </li>
           </Link>
-          <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <p className="title">QUẢN LÝ TOUR DU LỊCH</p>
+          <Link to="/tours" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Users</span>
+              <LocalActivityIcon className="icon" />
+              <span>Quản lý chuyến tham quan</span>
             </li>
           </Link>
+          <Link to="/bookings" style={{ textDecoration: "none" }}>
+            <li>
+              <BookOnlineIcon className="icon" />
+              <span>Đặt chỗ</span>
+            </li>
+          </Link>
+          <p className="title">DỊCH VỤ LƯU TRÚ & VẬN CHUYỂN</p>
           <Link to="/hotels" style={{ textDecoration: "none" }}>
             <li>
-              <StoreIcon className="icon" />
-              <span>Hotels</span>
+              <HotelIcon className="icon" />
+              <span>Khách sạn</span>
             </li>
           </Link>
           <Link to="/rooms" style={{ textDecoration: "none" }}>
             <li>
-              <CreditCardIcon className="icon" />
-              <span>Rooms</span>
+              <MeetingRoomIcon className="icon" />
+              <span>Phòng nghỉ</span>
+            </li>
+          </Link>
+          <Link to="/flights" style={{ textDecoration: "none" }}>
+            <li>
+              <FlightIcon className="icon" />
+              <span>Chuyến bay</span>
+            </li>
+          </Link>
+          <Link to="/cars" style={{ textDecoration: "none" }}>
+            <li>
+              <DirectionsCarIcon className="icon" />
+              <span>Thuê xe tự lái</span>
+            </li>
+          </Link>
+          <Link to="/taxis" style={{ textDecoration: "none" }}>
+            <li>
+              <LocalTaxiIcon className="icon" />
+              <span>Taxi / Đưa đón</span>
+            </li>
+          </Link>
+          <p className="title">TRẢI NGHIỆM & KHUYẾN MÃI</p>
+          <Link to="/activities" style={{ textDecoration: "none" }}>
+            <li>
+              <ExploreIcon className="icon" />
+              <span>Hoạt động giải trí</span>
+            </li>
+          </Link>
+          <Link to="/coupons" style={{ textDecoration: "none" }}>
+            <li>
+              <CardGiftcardIcon className="icon" />
+              <span>Mã giảm giá</span>
             </li>
           </Link>
           <Link to="/delivery" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />
-              <span>Delivery</span>
+              <span>Dịch vụ giao hàng</span>
             </li>
           </Link>
-          <p className="title">USEFUL</p>
+          <p className="title">HÀNH CHÍNH</p>
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>Tài khoản người dùng</span>
+            </li>
+          </Link>
           <Link to="/stats" style={{ textDecoration: "none" }}>
             <li>
               <InsertChartIcon className="icon" />
-              <span>Stats</span>
+              <span>Thống kê</span>
             </li>
           </Link>
-          <Link to="/notifications" style={{ textDecoration: "none" }}>
+          <p className="title">MỞ RỘNG</p>
+          <Link to="/payments" style={{ textDecoration: "none" }}>
             <li>
-              <NotificationsNoneIcon className="icon" />
-              <span>Notifications</span>
+              <PaymentIcon className="icon" />
+              <span>Thanh toán</span>
             </li>
           </Link>
-          <p className="title">SERVICE</p>
-          <Link to="/system-health" style={{ textDecoration: "none" }}>
+          <Link to="/categories" style={{ textDecoration: "none" }}>
             <li>
-              <SettingsSystemDaydreamOutlinedIcon className="icon" />
-              <span>System Health</span>
+              <CategoryIcon className="icon" />
+              <span>Danh mục</span>
             </li>
           </Link>
-          <Link to="/logs" style={{ textDecoration: "none" }}>
+          <Link to="/articles" style={{ textDecoration: "none" }}>
             <li>
-              <PsychologyOutlinedIcon className="icon" />
-              <span>Logs</span>
+              <ArticleIcon className="icon" />
+              <span>Bài viết</span>
             </li>
           </Link>
+          <Link to="/reviews" style={{ textDecoration: "none" }}>
+            <li>
+              <RateReviewIcon className="icon" />
+              <span>Đánh giá</span>
+            </li>
+          </Link>
+          <Link to="/tickets" style={{ textDecoration: "none" }}>
+            <li>
+              <SupportAgentIcon className="icon" />
+              <span>Hỗ trợ</span>
+            </li>
+          </Link>
+          <p className="title">HỆ THỐNG</p>
           <Link to="/settings" style={{ textDecoration: "none" }}>
             <li>
-              <SettingsApplicationsIcon className="icon" />
-              <span>Settings</span>
+              <SettingsIcon className="icon" />
+              <span>Cài đặt</span>
             </li>
           </Link>
-          <p className="title">USER</p>
-          <Link to="/profile" style={{ textDecoration: "none" }}>
+          <p className="title">NGƯỜI DÙNG</p>
+          <Link to="/login" style={{ textDecoration: "none" }}>
             <li>
-              <AccountCircleOutlinedIcon className="icon" />
-              <span>Profile</span>
+              <ExitToAppIcon className="icon" />
+              <span>Đăng nhập</span>
+            </li>
+          </Link>
+          <Link to="/register" style={{ textDecoration: "none" }}>
+            <li>
+              <ExitToAppIcon className="icon" />
+              <span>Đăng ký</span>
             </li>
           </Link>
           <li onClick={() => authDispatch({ type: "LOGOUT" })}>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span>Đăng xuất</span>
           </li>
         </ul>
       </div>
-      <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-        ></div>
-      </div>
+
     </div>
   );
 };

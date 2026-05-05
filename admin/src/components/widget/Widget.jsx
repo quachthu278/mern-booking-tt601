@@ -4,20 +4,39 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import useFetch from "../../hooks/useFetch";
 
 const Widget = ({ type }) => {
-  let data;
+  let widgetData;
 
-  //temporary
-  const amount = 100;
+  // Map type to API endpoint
+  const getQuery = (type) => {
+    switch (type) {
+      case "user": return "users";
+      case "order": return "bookings";
+      case "tour": return "tours";
+      case "earning": return "stats";
+      case "balance": return "stats";
+      default: return "users";
+    }
+  };
+
+  const query = getQuery(type);
+  const { data: fetchedData } = useFetch(`/${query}`);
+  
+  const amount = Array.isArray(fetchedData) 
+    ? fetchedData.length 
+    : (fetchedData?.count || 0);
+
   const diff = 20;
 
   switch (type) {
     case "user":
-      data = {
-        title: "USERS",
+      widgetData = {
+        title: "KHÁCH HÀNG",
         isMoney: false,
-        link: "See all users",
+        link: "Xem tất cả khách hàng",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -30,10 +49,10 @@ const Widget = ({ type }) => {
       };
       break;
     case "order":
-      data = {
-        title: "ORDERS",
+      widgetData = {
+        title: "ĐƠN HÀNG",
         isMoney: false,
-        link: "View all orders",
+        link: "Xem tất cả đơn hàng",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -46,10 +65,10 @@ const Widget = ({ type }) => {
       };
       break;
     case "earning":
-      data = {
-        title: "EARNINGS",
+      widgetData = {
+        title: "THU NHẬP",
         isMoney: true,
-        link: "View net earnings",
+        link: "Xem chi tiết doanh thu",
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
@@ -59,16 +78,32 @@ const Widget = ({ type }) => {
       };
       break;
     case "balance":
-      data = {
-        title: "BALANCE",
+      widgetData = {
+        title: "SỐ DƯ",
         isMoney: true,
-        link: "See details",
+        link: "Xem chi tiết",
         icon: (
           <AccountBalanceWalletOutlinedIcon
             className="icon"
             style={{
               backgroundColor: "rgba(128, 0, 128, 0.2)",
               color: "purple",
+            }}
+          />
+        ),
+      };
+      break;
+    case "tour":
+      widgetData = {
+        title: "TOUR",
+        isMoney: false,
+        link: "Xem tất cả tour",
+        icon: (
+          <LocalActivityIcon
+            className="icon"
+            style={{
+              backgroundColor: "rgba(0, 120, 215, 0.2)",
+              color: "#0078d7",
             }}
           />
         ),
@@ -81,18 +116,18 @@ const Widget = ({ type }) => {
   return (
     <div className="widget">
       <div className="left">
-        <span className="title">{data.title}</span>
+        <span className="title">{widgetData?.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {widgetData?.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <span className="link">{widgetData?.link}</span>
       </div>
       <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
           {diff} %
         </div>
-        {data.icon}
+        {widgetData?.icon}
       </div>
     </div>
   );

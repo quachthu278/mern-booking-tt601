@@ -2,6 +2,7 @@ import "./list.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import Datatable from "../../components/datatable/Datatable"
+import CategoryNav from "../../components/categoryNav/CategoryNav"
 
 const List = ({columns}) => {
   return (
@@ -9,6 +10,7 @@ const List = ({columns}) => {
       <Sidebar/>
       <div className="listContainer">
         <Navbar/>
+        <CategoryNav />
         <Datatable columns={columns}/>
       </div>
     </div>

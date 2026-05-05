@@ -1,0 +1,363 @@
+.authContainer {
+    min-height: 100vh;
+    background-color: #f4f7fe;
+    font-family: 'Montserrat', sans-serif;
+
+    /* --- Header --- */
+    .authHeader {
+        background: #003B95;
+        color: white;
+        padding: 0 40px;
+
+        .headerTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+            .logo {
+                font-size: 20px;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                text-decoration: none;
+                color: white;
+
+                span {
+                    color: #ffb700;
+                }
+            }
+
+            .navRight ul {
+                display: flex;
+                list-style: none;
+                gap: 24px;
+                font-size: 13px;
+                font-weight: 500;
+
+                li {
+                    cursor: pointer;
+                    opacity: 0.9;
+                    transition: opacity 0.2s;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .headerCategories {
+            padding: 12px 0;
+            overflow-x: auto;
+
+            ul {
+                display: flex;
+                list-style: none;
+                gap: 30px;
+
+                li {
+                    font-size: 13px;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    opacity: 0.8;
+                    cursor: pointer;
+                    white-space: nowrap;
+
+                    &.active {
+                        opacity: 1;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -12px;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* --- Main Layout --- */
+    .authWrapper {
+        max-width: 1200px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+        padding: 0 20px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            .marketingSection {
+                display: none;
+            }
+        }
+    }
+
+    /* --- Left Column (Auth Form) --- */
+    .authCard {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+
+        .authTabs {
+            display: flex;
+            border-bottom: 2px solid #edf2f7;
+
+            .tabLink {
+                flex: 1;
+                padding: 20px;
+                text-align: center;
+                cursor: pointer;
+                font-weight: 700;
+                color: #64748b;
+                transition: all 0.2s;
+                font-size: 15px;
+                text-decoration: none;
+
+                &.active {
+                    color: #003B95;
+                    border-bottom: 3px solid #6366f1;
+                }
+            }
+        }
+
+        .authForm {
+            padding: 30px;
+
+            .formRow {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-bottom: 16px;
+                
+                @media (max-width: 600px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .formGroup {
+                margin-bottom: 16px;
+                position: relative;
+
+                label {
+                    display: block;
+                    font-size: 13px;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                    color: #1e293b;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 12px 16px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 8px;
+                    font-size: 14px;
+                    outline: none;
+                    background: #f8fafc;
+                    transition: border-color 0.2s;
+
+                    &:focus {
+                        border-color: #0071C2;
+                        background: white;
+                    }
+                }
+
+                .eyeIcon {
+                    position: absolute;
+                    right: 12px;
+                    bottom: 12px;
+                    color: #64748b;
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+            }
+
+            .checkboxGroup {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 24px;
+                font-size: 13px;
+                color: #64748b;
+
+                a {
+                    color: #0071C2;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+            }
+
+            .authButton {
+                width: 100%;
+                margin-top: 24px;
+                padding: 15px;
+                background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+
+                &:hover:not(:disabled) {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+                }
+
+                &:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                    background: #64748b;
+                }
+            }
+
+            .authError {
+                display: block;
+                color: #ef4444;
+                font-size: 13px;
+                margin-top: 12px;
+                text-align: center;
+                font-weight: 600;
+            }
+        }
+    }
+
+    /* --- Right Column (Marketing) --- */
+    .marketingSection {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .promoHero {
+            background: #0071C2;
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 113, 194, 0.3);
+
+            h2 {
+                font-size: 24px;
+                font-weight: 800;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 14px;
+                opacity: 0.9;
+                line-height: 1.6;
+                max-width: 80%;
+            }
+
+            .bgIcon {
+                position: absolute;
+                right: 20px;
+                top: 40%;
+                font-size: 60px;
+                opacity: 0.15;
+                transform: rotate(-15deg);
+            }
+        }
+
+        .benefitsGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .benefitCard {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            }
+
+            .iconBox {
+                min-width: 48px;
+                height: 48px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+
+                &.hotel { background: #eff6ff; color: #3b82f6; }
+                &.flight { background: #fff7ed; color: #f97316; }
+                &.promo { background: #f0fdf4; color: #22c55e; }
+                &.secure { background: #fef2f2; color: #ef4444; }
+            }
+
+            .benefitInfo {
+                h4 {
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin-bottom: 4px;
+                }
+
+                p {
+                    font-size: 12px;
+                    color: #64748b;
+                }
+            }
+        }
+
+        .promoBanner {
+            background: #8b5cf6;
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+
+            .bannerText {
+                h5 {
+                    font-size: 15px;
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                }
+
+                p {
+                    font-size: 13px;
+                    opacity: 0.9;
+                }
+            }
+
+            .promoCode {
+                background: rgba(255, 255, 255, 0.2);
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-weight: 800;
+                font-size: 16px;
+                border: 1px dashed white;
+            }
+        }
+    }
+}
